@@ -6,6 +6,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getCategory();
+    // eslint-disable-next-line
   }, []);
 
   const baseEndPoint = "https://www.dnd5eapi.co/api";
@@ -14,14 +15,19 @@ const HomePage = () => {
     const response = await fetch(baseEndPoint);
     const data = await response.json();
     setCategory(data);
-    console.log(category);
   };
+
+  console.log(category);
 
   return (
     <Container>
-      {Object.keys(category).map(function (categories) {
-        <Row>{category[categories]}</Row>;
-      })}
+      <Row>{category["ability-scores"]}</Row>
+      <Row>{category["alignments"]}</Row>
+      <Row>{category["backgrounds"]}</Row>
+      <Row>{category["classes"]}</Row>
+      <Row>{category["conditions"]}</Row>
+      <Row>{category["damage-types"]}</Row>
+      <Row>{category["equipment"]}</Row>
     </Container>
   );
 };
