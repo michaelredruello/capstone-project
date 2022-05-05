@@ -1,0 +1,53 @@
+.search-form {
+  margin: auto;
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.direct-search-desult {
+  position: absolute;
+  width: 450px;
+}
+
+.direct-search-desult a {
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  background-color: #202d39;
+  border-bottom: 1px solid gray;
+  padding: 10px 20px;
+}
+
+.direct-search-desult a:hover {
+  background-color: #16202b;
+}
+
+.direct-search-desult a img {
+  max-height: 90px;
+  width: 80px;
+  margin-right: 1.5rem;
+}
+
+.result-card-info {
+  margin-left: 15px;
+}
+
+.no-result {
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #16202b;
+}

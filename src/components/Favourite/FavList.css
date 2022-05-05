@@ -1,0 +1,101 @@
+.fav-list {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fav-game-changed {
+  background-color: red;
+}
+
+.fav-game-card {
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid antiquewhite;
+  border-radius: 10px;
+}
+
+.fav-game-card h3 {
+  margin-right: 50px;
+}
+
+.fav-game-describe {
+  display: flex;
+  align-items: center;
+}
+
+.fav-btn {
+  margin-top: 10px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 30px;
+  margin: auto;
+}
+
+.fav-btn:hover {
+  background-color: #2daae1;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.fav-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.fav-card {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #202d39;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #c7d5e0;
+}
+
+.fav-thumb {
+  display: block;
+  width: 175px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #13171e;
+}
+
+.fav-card:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.fav-prices :nth-child(2) {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.remove-btn {
+  background-color: #13171e;
+  text-align: center;
+  padding-top: 25px;
+  width: 40px;
+}
+
+.remove-btn:hover {
+  cursor: pointer;
+  background-color: rgba(212, 33, 33, 0.76);
+}
+
+.seen-btn {
+  background-color: #13171e;
+  text-align: center;
+  padding-top: 25px;
+  width: 40px;
+}
+
+.seen-btn:hover {
+  cursor: pointer;
+  background-color: rgba(218, 147, 17, 0.87);
+}

@@ -1,0 +1,63 @@
+.game-card {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #202d39;
+  background: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #c7d5e0;
+}
+
+.game-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.game-card:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.card-thumb {
+  display: block;
+  width: 175px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-color: #13171e;
+}
+
+.game-info {
+  margin-left: 10px;
+}
+
+.game-price-card {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  text-align: center;
+}
+
+.gamecard-row {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.add-btn {
+  background-color: #13171e;
+  text-align: center;
+  padding-top: 25px;
+  width: 40px;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+  background-color: #4c6b22;
+}

@@ -1,0 +1,93 @@
+.game-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.game-main h1 {
+  width: 80%;
+  font-size: 5em;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 20px;
+  margin-bottom: 0.8em;
+  border-bottom: 1px solid black;
+}
+
+.game-main-deals {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.note-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.note-boxes > * {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.note {
+  display: block;
+  width: 200px;
+  height: 200px;
+  font-size: x-large;
+  border: 1px solid #e040fb;
+}
+
+.note-title {
+  margin-top: 20px;
+  color: #ff4081;
+  text-align: center;
+}
+
+.note:hover {
+  background-color: rgba(224, 64, 251, 0.22);
+}
+
+.best-deal {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #e040fb;
+  margin-left: 0px;
+  font-size: x-large;
+  text-align: center;
+  color: #69f0ae;
+}
+
+.best-deal:hover {
+  background-color: rgba(224, 64, 251, 0.22);
+}
+
+.price-list {
+  width: 350px;
+  text-align: center;
+  margin: auto;
+}
+
+.price-list h2 {
+  margin-bottom: 10px;
+}
+
+.banner-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.banner-info h1 {
+  color: #2daae1;
+  font-size: 53px;
+  font-weight: 300;
+}

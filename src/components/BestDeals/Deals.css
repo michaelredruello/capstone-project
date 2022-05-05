@@ -1,0 +1,74 @@
+.deal-card {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #202d39;
+  margin: auto;
+  margin-bottom: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #c7d5e0;
+}
+
+.deal-card:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.deals-loader {
+  width: fit-content;
+  margin: auto;
+}
+
+.game-savings p {
+  color: #a4d007;
+  background: #4c6b22;
+  padding: 0 4px;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.game-savings {
+  margin-right: 10px;
+}
+
+.game-price :nth-child(2n) {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.available-store {
+  font-size: 12px;
+  color: #ffffff6b;
+}
+
+.available-store img {
+  width: 15px;
+  margin: 0 5px;
+}
+
+.deals-container h2 {
+  text-align: center;
+  color: #2daae1;
+  font-size: 40px;
+  font-weight: 300;
+  margin: 30px 0 40px;
+}
+
+.filter-selector {
+  max-width: 700px;
+  margin: auto;
+  text-align: end;
+}
+
+.filter-selector select {
+  width: 120px;
+  height: 40px;
+  color: #67c1f5;
+  background: rgba(103, 193, 245, 0.1);
+  border: 0;
+}
+
+.deals-list-rows {
+  margin: 15px 50px;
+}
