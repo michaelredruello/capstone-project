@@ -25,6 +25,7 @@ const Home = () => {
       <section className="main-content">
         <div className="container">
           <div className="main-content-section">
+            <div className="col-img main-img-1"></div>
             <div className="col-txt">
               <div className="main-text">
                 <h2>Save up to 98% on your games !</h2>
