@@ -1,7 +1,7 @@
 import "./App.css";
 import "react-notifications-component/dist/theme.css";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -18,7 +18,7 @@ import GameInfo from "./components/GameInfo/GameInfo";
 import Navbar from "./components/Navbar";
 import Deals from "./components/BestDeals/Deals";
 import FavList from "./components/Favourite/FavList";
-import ReactNotification from "react-notifications-component";
+import { ReactNotifications } from "react-notifications-component";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
@@ -87,7 +87,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <ReactNotification />
+      <ReactNotifications />
       <Navbar asChange={asChange} />
       <Routes>
         <Route path="/" element={<Home />} />

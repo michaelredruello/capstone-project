@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
 import "./GameCard.css";
 import axios from "axios";
 import { MdAddAlert } from "react-icons/md";
@@ -79,4 +78,4 @@ class GameCard extends Component {
   }
 }
 
-export default withRouter(GameCard);
+export default GameCard;

@@ -41,21 +41,6 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="col-img main-img-1"></div>
-          </div>
-          <div className="main-content-section">
-            <div className="col-img main-img-2"></div>
-            <div className="col-txt main-text">
-              <h2>Be notified when a price drop !</h2>
-              <p>
-                Price are changing every day. No longer miss a price drop with
-                our notification system.
-              </p>
-              <br />
-              <p>
-                Flag a game and be notified when the price drop on a pltaform
-              </p>
-            </div>
           </div>
         </div>
       </section>
