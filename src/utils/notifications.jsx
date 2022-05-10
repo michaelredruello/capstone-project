@@ -1,7 +1,7 @@
-import { store } from "react-notifications-component";
+import { Store } from "react-notifications-component";
 
 export const addNotif = (title) => {
-  store.addNotification({
+  Store.addNotification({
     title: `${title} is add to your favorite list`,
     message: " ",
     type: "info",
@@ -17,7 +17,7 @@ export const addNotif = (title) => {
 };
 
 export const removedNotif = (title) => {
-  store.addNotification({
+  Store.addNotification({
     title: `${title} is removed`,
     message: " ",
     type: "warning",
@@ -33,7 +33,7 @@ export const removedNotif = (title) => {
 };
 
 export const changeNotif = (title) => {
-  store.addNotification({
+  Store.addNotification({
     title: `${title} price just drop !`,
     message: "Check your wishlist to see more",
     type: "success",

@@ -1,58 +1,50 @@
-import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-class SearchResult extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      game: {
-        info: {
-          title: "",
-        },
-        deals: {
-          0: {
-            price: "",
-          },
-        },
+const SearchResult = (props) => {
+  const [game, setGame] = useState({
+    info: {
+      title: "",
+    },
+    deals: {
+      0: {
+        price: "",
       },
-    };
-  }
+    },
+  });
 
-  componentDidMount() {
-    this.getGame(this.props.gameID);
-  }
+  useEffect(() => {
+    getGame(props.gameID);
+    // eslint-disable-next-line
+  }, []);
 
-  getGame = (gameID) => {
+  const getGame = (gameID) => {
     axios
       .get(`https://www.cheapshark.com/api/1.0/games?id=${gameID}`)
       .then((response) => response.data)
       .then((data) => {
-        const game = data;
-        game.thumb = this.props.thumb;
-        this.setState({ game });
+        setGame(data);
       });
   };
 
-  render() {
-    const { game } = this.state;
-    const { gameID } = this.props;
-    const thumbnail = { backgroundImage: `url(${this.state.game.thumb})` };
-    return (
-      <Link
-        to={{
-          pathname: `/game/${gameID}`,
-          state: { game: game },
-        }}
-      >
-        <span className="card-thumb" style={thumbnail}></span>
-        <div className="result-card-info">
-          <h3>{game.info.title}</h3>
-          <p>{game.deals[0].price} $</p>
-        </div>
-      </Link>
-    );
-  }
-}
+  return (
+    <Link
+      to={{
+        pathname: `/game/${props.gameID}`,
+      }}
+      state={game}
+    >
+      <span
+        className="card-thumb"
+        style={{ backgroundImage: `url(${props.thumb})` }}
+      ></span>
+      <div className="result-card-info">
+        <h3>{game.info.title}</h3>
+        <p>{game.deals[0].price} $</p>
+      </div>
+    </Link>
+  );
+};
 
 export default SearchResult;

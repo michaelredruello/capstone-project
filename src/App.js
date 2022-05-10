@@ -63,7 +63,6 @@ const App = () => {
     favGames.splice(index, 1);
 
     setFavGames(favGames);
-
     removedNotif(title);
   };
 

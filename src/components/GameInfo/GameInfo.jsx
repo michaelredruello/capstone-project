@@ -5,7 +5,7 @@ import "./GameInfo.css";
 
 class GameInfo extends Component {
   render() {
-    const { deals } = this.props.location.state.game;
+    const { deals, thumb } = this.props.location.state.game;
     const { title } = this.props.location.state.game.info;
     const { addFav } = this.props;
     const { dealID, price } = deals[0];

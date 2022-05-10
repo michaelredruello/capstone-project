@@ -1,40 +1,34 @@
-import React, { Component } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router";
 import GameCard from "./GameCard";
 import SortedPrice from "./SortedPrice";
 
-class GameList extends Component {
-  state = {
-    games: this.props.location.state.games,
-    sortBy: "",
-  };
+const GameList = (props) => {
+  let location = useLocation();
+  const [games, setGames] = useState(location.state.games);
 
-  handleSorted = (event) => {
+  const handleSorted = (event) => {
     const value = event.target.value;
     const byPrice = (a, b) => a.cheapest - b.cheapest;
     if (value === "cheapest") {
-      const filteredPrice = [...this.state.games].sort(byPrice);
-      this.setState({
-        games: filteredPrice,
-      });
+      const filteredPrice = [...games].sort(byPrice);
+      setGames(filteredPrice);
     } else {
-      const { games } = this.props.location.state;
-      this.setState({ games });
+      setGames(location.state);
     }
   };
-  render() {
-    const { addFav } = this.props;
-    return (
-      <div className="container result-container">
-        <h2>Your search result</h2>
-        <SortedPrice handleSorted={this.handleSorted} />
-        <div className="game-list-rows">
-          {this.state.games.map((game) => (
-            <GameCard key={game.gameID} addFav={addFav} {...game} />
-          ))}
-        </div>
+
+  return (
+    <div className="container result-container">
+      <h2>Your search result</h2>
+      <SortedPrice handleSorted={handleSorted} />
+      <div className="game-list-rows">
+        {games.map((game) => (
+          <GameCard key={game.gameID} addFav={props.addFav} {...game} />
+        ))}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default GameList;
