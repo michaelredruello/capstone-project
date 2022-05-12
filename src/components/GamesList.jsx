@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import GameCard from "./GameCard";
 import SortedPrice from "./SortedPrice";
 

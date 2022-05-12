@@ -2,13 +2,7 @@ import "./App.css";
 import "react-notifications-component/dist/theme.css";
 
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  useMatch,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { setStorage, getStorage, checkChanges } from "./utils/storage";
 import { addNotif, removedNotif } from "./utils/notifications";
 
@@ -90,16 +84,8 @@ const App = () => {
       <Navbar asChange={asChange} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/search"
-          element={<GameList addFav={addFav} location={useLocation} />}
-        />
-        <Route
-          path="/game/:gameID"
-          element={
-            <GameInfo addFav={addFav} location={useLocation} match={useMatch} />
-          }
-        />
+        <Route path="/search" element={<GameList addFav={addFav} />} />
+        <Route path="/game/:gameID" element={<GameInfo addFav={addFav} />} />
         <Route path="/deals" element={<Deals />} />
         <Route
           path="/favorite"

@@ -33,7 +33,7 @@ const SearchResult = (props) => {
       to={{
         pathname: `/game/${props.gameID}`,
       }}
-      state={game}
+      state={{ game: game }}
     >
       <span
         className="card-thumb"

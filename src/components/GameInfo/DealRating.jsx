@@ -40,16 +40,10 @@ class DealRating extends React.Component {
     const { dealID } = this.props;
     const dealUrl = `https://www.cheapshark.com/redirect?dealID=${dealID}`;
     return (
-      <a href={dealUrl} className="best-deal">
+      <a href={dealUrl} className="best-deal button">
         <p style={priceValue}>Best deal</p>
         <h2 style={price}>{this.state.price} $</h2>
-        <a
-          className="button"
-          href={`https://www.cheapshark.com/redirect?dealID=${dealID}`}
-          target="_blank"
-        >
-          Buy !
-        </a>
+        Buy !
       </a>
     );
   }
