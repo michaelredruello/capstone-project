@@ -1,0 +1,9 @@
+.navbar-search-form {
+  margin-right: auto;
+}
+
+.navbar-search-form input {
+  margin: 0;
+  padding: 5px;
+  border: solid #58595b;
+}

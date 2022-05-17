@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const noteValue = {
-  marginTop: "30px",
+  marginTop: "10px",
   color: "#ff4081",
 };
 
@@ -40,11 +40,10 @@ class Note extends React.Component {
         href={`https://www.metacritic.com${infos.metacriticLink}`}
         className="best-deal button"
       >
-        <p className="note-title">Game score</p>
         <h2 style={noteValue}>
           {score > 0 ? score : infos.steamRatingPercent} %
         </h2>
-        <p style={{ color: "#ff4081" }}>Get more info</p>
+        <span style={{ color: "#ff4081" }}>Game score</span>
       </a>
     );
   }

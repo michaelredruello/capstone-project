@@ -56,8 +56,8 @@
 
 .best-deal {
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 100px;
   border: 1px solid #e040fb;
   margin-left: 0px;
   font-size: x-large;
@@ -70,13 +70,14 @@
 }
 
 .price-list {
-  width: 350px;
+  width: 320px;
   text-align: center;
-  margin: auto;
+  margin-left: auto;
 }
 
 .price-list h2 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: 26px;
 }
 
 .banner-info {
@@ -88,6 +89,22 @@
 
 .banner-info h1 {
   color: #2daae1;
-  font-size: 53px;
+  font-size: 46px;
   font-weight: 300;
+  margin-bottom: 3px;
+}
+
+.banner-info img {
+  border: solid #2daae1;
+  width: 800px;
+  height: 400px;
+}
+
+.banner-info p {
+  color: #2daae1;
+  margin-top: 10px;
+}
+
+.banner-elem {
+  width: 75%;
 }

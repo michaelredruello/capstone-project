@@ -27,7 +27,6 @@ const GameCard = (props) => {
       .then((res) => res.data)
       .then((data) => {
         setGame(data);
-        console.log(game);
       });
   };
 

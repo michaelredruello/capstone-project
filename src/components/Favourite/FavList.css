@@ -71,11 +71,6 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-.fav-prices :nth-child(2) {
-  text-decoration: line-through;
-  color: gray;
-}
-
 .remove-btn {
   background-color: #13171e;
   text-align: center;

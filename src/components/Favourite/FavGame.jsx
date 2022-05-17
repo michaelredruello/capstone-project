@@ -12,7 +12,7 @@ const FavGame = ({
   removeFav,
   removeNotif,
 }) => {
-  const thumb = game.thumb;
+  const thumb = game.info.thumb;
   const saving = Math.round(
     100 - 100 * (parseFloat(newPrice) / parseFloat(price))
   );
@@ -36,10 +36,6 @@ const FavGame = ({
           <div className="game-price-card">
             <div className="game-savings">
               {saving > 0 && <p>-{saving} %</p>}
-            </div>
-            <div className="fav-prices">
-              {newPrice !== null && <p>{newPrice + " $"}</p>}
-              <p>{Math.round(price * 100) / 100} $</p>
             </div>
           </div>
         </div>

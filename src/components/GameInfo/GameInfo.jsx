@@ -41,8 +41,6 @@ const GameInfo = (props) => {
       });
   };
 
-  console.log(steamData);
-
   return (
     <div className="container">
       <section className="banner">
@@ -50,9 +48,7 @@ const GameInfo = (props) => {
           <div className="banner-elem">
             <div className="banner-info">
               <h1>{title}</h1>
-              <p>
-                <img src={steamData.imgUrl} alt="game-banner img" />
-              </p>
+              <img src={steamData.imgUrl} alt="game-banner img" />
               <p>{steamData.description}</p>
               <RatingNotes dealID={dealID} />
               <button

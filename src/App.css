@@ -1,10 +1,12 @@
 .bg-white {
   background-color: #fff;
 }
+
 .container {
   max-width: 1145px;
   margin: auto;
 }
+
 .main-nav {
   display: flex;
   flex-direction: row;
@@ -31,39 +33,48 @@
 .banner {
   background-color: #1b2838;
 }
+
 .banner-container {
   display: flex;
   flex-direction: row;
   padding: 50px 0;
 }
+
 .banner-elem {
   width: 50%;
 }
+
 .banner-text {
   padding: 100px 0px;
   max-width: 495px;
 }
+
 .banner-text h1 {
   color: #2daae1;
   font-size: 53px;
   font-weight: 300;
   margin: 0 0 20px;
 }
+
 .banner-text p {
   line-height: 28px;
   font-size: 19px;
   margin: 0 0 20px;
 }
+
 .banner-text span {
   text-decoration: underline;
 }
+
 .img-container {
   display: flex;
 }
+
 .banner-img {
   max-width: 100%;
   margin: auto;
 }
+
 .game-list-rows {
   display: flex;
   flex-direction: column;
@@ -74,38 +85,46 @@
 .main-content {
   background-color: #36abde;
 }
+
 .main-content-section {
   display: flex;
   flex-direction: row;
   height: 400px;
 }
+
 .col-txt {
   width: 50%;
 }
+
 .col-img {
   width: 50%;
 }
+
 .main-text {
   padding: 75px 0 50px 50px;
   max-width: 400px;
 }
+
 .main-text h2 {
   font-size: 40px;
   font-weight: 200;
   line-height: 45px;
   margin-bottom: 30px;
 }
+
 .main-text p {
   font-size: 16px;
   line-height: 28px;
   font-weight: 300;
 }
+
 .main-img-1 {
   background-image: url(https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .main-img-2 {
   background-image: url(https://images.unsplash.com/photo-1514464750060-00e6e34c8b8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);
   background-size: cover;
@@ -113,45 +132,9 @@
   background-position: center;
 }
 
-/* Business section */
-.business {
-  background-color: #fff;
-  padding: 60px 0;
-}
-.business h2 {
-  color: #2daae1;
-  font-size: 40px;
-  font-weight: 300;
-  margin: 0 0 20px;
-}
-.business p {
-  color: black;
-  line-height: 28px;
-  font-size: 19px;
-  margin: 0 0 20px;
-}
-.business-container {
-  display: flex;
-  flex-direction: row;
-}
-.contact-btn {
-  display: inline-block;
-  padding: 20px 10px;
-  background-color: #2daae1;
-  border: 2px solid #2daae1;
-  border-radius: 30px;
-}
-.contact-btn:hover {
-  color: #2daae1;
-  background-color: #fff;
-}
-
 footer {
   text-align: center;
   padding: 20px 0;
-}
-footer a {
-  color: #f76c6c;
 }
 
 /* RESULT */

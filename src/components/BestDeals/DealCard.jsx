@@ -16,7 +16,6 @@ const DealCard = ({
     <a
       className="deal-card"
       href={`https://www.cheapshark.com/redirect?dealID=${dealID}`}
-      target="_blank"
     >
       <span className="card-thumb" style={thumbnail}></span>
       <div className="game-info-container">
