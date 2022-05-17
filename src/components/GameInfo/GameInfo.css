@@ -80,7 +80,7 @@
 }
 
 .banner-info {
-  text-align: center;
+  text-align: start;
   display: flex;
   flex-direction: column;
   margin: auto;

@@ -31,8 +31,7 @@ const Home = () => {
                 <h2>Save up to 98% on your games !</h2>
                 <p>
                   {" "}
-                  With priceless games, expensive pricing is no longer a
-                  problem!
+                  With Best Deals, expensive pricing is no longer a problem!
                 </p>
                 <br />
                 <p>

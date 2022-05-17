@@ -6,30 +6,29 @@ import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [value, setValue] = useState("");
-  const [games, setGames] = useState([]);
+  const [game, setGame] = useState([]);
   const [isFocus, setIsFocus] = useState(false);
   const navigate = useNavigate();
 
-  const getGames = (input) => {
+  const getGame = (input) => {
     axios
       .get(`https://www.cheapshark.com/api/1.0/games?title=${input}&limit=15`)
       .then((response) => response.data)
       .then((data) => {
-        setGames(data);
+        setGame(data);
       });
   };
 
-  const handleSearch = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/search", { state: { games: games } });
+    navigate("/search", { state: { game: game } });
   };
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setValue(value);
+    setValue(e.target.value);
     if (value.length > 0) {
       setIsFocus(true);
-      getGames(value);
+      getGame(value);
     } else {
       setIsFocus(false);
     }
@@ -47,23 +46,19 @@ const Search = () => {
 
   return (
     <div className="search-form">
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSubmit}>
         <input
           type="search"
           placeholder="Look for a game"
-          autoComplete="off"
           id="main-search"
           name="search"
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onChange={(event) => {
-            handleChange(event);
-          }}
+          onChange={handleChange}
         />
       </form>
-
-      {isFocus && <SearchList games={games.slice(0, 5)} />}
+      {isFocus && <SearchList games={game.slice(0, 5)} />}
     </div>
   );
 };

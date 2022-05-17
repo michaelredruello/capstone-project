@@ -2,11 +2,10 @@ import React from "react";
 import axios from "axios";
 
 const noteValue = {
-  marginTop: "20px",
-  marginBottom: "10px",
+  marginTop: "30px",
   color: "#ff4081",
-  textAlign: "center",
 };
+
 class Note extends React.Component {
   constructor(props) {
     super(props);
@@ -39,15 +38,13 @@ class Note extends React.Component {
     return (
       <a
         href={`https://www.metacritic.com${infos.metacriticLink}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="note"
+        className="best-deal button"
       >
         <p className="note-title">Game score</p>
         <h2 style={noteValue}>
           {score > 0 ? score : infos.steamRatingPercent} %
         </h2>
-        <p>Get more info</p>
+        <p style={{ color: "#ff4081" }}>Get more info</p>
       </a>
     );
   }

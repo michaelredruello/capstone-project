@@ -5,16 +5,16 @@ import SortedPrice from "./SortedPrice";
 
 const GameList = (props) => {
   let location = useLocation();
-  const [games, setGames] = useState(location.state.games);
+  const [game, setGame] = useState(location.state.game);
 
   const handleSorted = (event) => {
     const value = event.target.value;
     const byPrice = (a, b) => a.cheapest - b.cheapest;
     if (value === "cheapest") {
-      const filteredPrice = [...games].sort(byPrice);
-      setGames(filteredPrice);
+      const filteredPrice = [...game].sort(byPrice);
+      setGame(filteredPrice);
     } else {
-      setGames(location.state);
+      setGame(location.state);
     }
   };
 
@@ -23,7 +23,7 @@ const GameList = (props) => {
       <h2>Your search result</h2>
       <SortedPrice handleSorted={handleSorted} />
       <div className="game-list-rows">
-        {games.map((game) => (
+        {game.map((game) => (
           <GameCard key={game.gameID} addFav={props.addFav} {...game} />
         ))}
       </div>
