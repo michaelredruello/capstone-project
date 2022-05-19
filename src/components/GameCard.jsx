@@ -48,7 +48,6 @@ const GameCard = (props) => {
           <div className="game-info">
             <p>{game.info.title}</p>
           </div>
-
           <div className="game-price-card">
             <div className="game-savings">
               {savings > 0 ? <p>-{Math.round(savings)}%</p> : ""}
