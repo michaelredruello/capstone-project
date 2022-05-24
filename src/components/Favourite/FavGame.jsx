@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { RemoveBtn, SeenBtn } from "./statusBtn";
 
@@ -16,14 +15,15 @@ const FavGame = ({
   const saving = Math.round(
     100 - 100 * (parseFloat(newPrice) / parseFloat(price))
   );
+
   return (
     <div className="fav-row">
       <Link
         className="fav-card"
         to={{
           pathname: `/game/${id}`,
-          state: { game: game },
         }}
+        state={{ game: game }}
       >
         <span
           className="fav-thumb"

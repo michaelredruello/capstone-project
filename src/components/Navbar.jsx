@@ -48,6 +48,7 @@ const Navbar = ({ asChange }) => {
           </Link>
           {asChange && <div className="red-dot"></div>}
         </div>
+        <Link to="/profile">Profile</Link>
       </nav>
     </header>
   );

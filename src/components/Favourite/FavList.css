@@ -25,18 +25,7 @@
 }
 
 .fav-btn {
-  margin-top: 10px;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 30px;
-  margin: auto;
-}
-
-.fav-btn:hover {
-  background-color: #2daae1;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
+  margin-left: auto;
 }
 
 .fav-row {

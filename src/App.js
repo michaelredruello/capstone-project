@@ -4,7 +4,7 @@ import "react-notifications-component/dist/theme.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { setStorage, getStorage, checkChanges } from "./utils/storage";
-import { addNotif, removedNotif } from "./utils/notifications";
+import { addNotif, removedNotif, alreadyNotif } from "./utils/notifications";
 
 import Home from "./components/Home";
 import GameList from "./components/GamesList";
@@ -45,10 +45,14 @@ const App = () => {
       game: game,
     };
 
-    addNotif(title);
+    if (favGames.some((favGames) => favGames.title === title)) {
+      alreadyNotif(title);
+    } else {
+      addNotif(title);
 
-    favGames.push(gameInfos);
-    setFavGames(favGames);
+      favGames.push(gameInfos);
+      setFavGames(favGames);
+    }
   };
 
   const removeFav = (id, title) => {
@@ -85,7 +89,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<GameList addFav={addFav} />} />
-        <Route path="/game/:gameID" element={<GameInfo addFav={addFav} />} />
+        <Route
+          path="/game/:gameID"
+          element={
+            <GameInfo
+              favGames={favGames}
+              addFav={addFav}
+              removeFav={removeFav}
+            />
+          }
+        />
         <Route path="/deals" element={<Deals />} />
         <Route
           path="/favorite"

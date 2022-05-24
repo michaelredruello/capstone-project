@@ -16,7 +16,7 @@ const Deals = () => {
 
   useEffect(() => {
     getDeals();
-  }, [sortBy]);
+  });
 
   const handleSelectedFilter = (event) => {
     console.log(event.target.value);

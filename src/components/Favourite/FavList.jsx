@@ -1,6 +1,5 @@
-import React from "react";
-import FavGame from "./FavGame";
 import "./FavList.css";
+import FavGame from "./FavGame";
 import logo from "../../imgs/logo-fav.svg";
 
 const FavList = ({ removeNotif, removeFav, favGames }) => {

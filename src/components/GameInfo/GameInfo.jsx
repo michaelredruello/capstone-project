@@ -1,12 +1,15 @@
 import "./GameInfo.css";
 import axios from "axios";
+import Note from "./Note";
+import DealRating from "./DealRating";
 import PriceList from "./PricesList/PriceList";
-import RatingNotes from "./RatingNotes";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 const GameInfo = (props) => {
   const [steamData, setSteamData] = useState([]);
+  const [favorite, setFavorite] = useState(false);
 
   let location = useLocation();
 
@@ -23,6 +26,11 @@ const GameInfo = (props) => {
   useEffect(() => {
     getSteamData();
     // eslint-disable-next-line
+    if (props.favGames.some((favGames) => favGames.title === title)) {
+      setFavorite(true);
+    } else {
+      setFavorite(false);
+    }
   }, []);
 
   const config = {
@@ -50,13 +58,29 @@ const GameInfo = (props) => {
               <h1>{title}</h1>
               <img src={steamData.imgUrl} alt="game-banner img" />
               <p>{steamData.description}</p>
-              <RatingNotes dealID={dealID} />
-              <button
-                className="fav-btn"
-                onClick={() => props.addFav(gameID, title, price, game)}
-              >
-                Follow this game
-              </button>
+              <div className="note-boxes">
+                <DealRating dealID={dealID} />
+                <Note dealID={dealID} />
+                {favorite ? (
+                  <FaHeart
+                    className="fav-btn"
+                    style={{ width: "30px", height: "30px", marginTop: "35px" }}
+                    onClick={() => {
+                      props.removeFav(gameID, title);
+                      setFavorite(false);
+                    }}
+                  />
+                ) : (
+                  <FaRegHeart
+                    className="fav-btn"
+                    style={{ width: "30px", height: "30px", marginTop: "35px" }}
+                    onClick={() => {
+                      props.addFav(gameID, title, price, game);
+                      setFavorite(true);
+                    }}
+                  />
+                )}
+              </div>
             </div>
           </div>
           <div className="banner-elem img-container">
