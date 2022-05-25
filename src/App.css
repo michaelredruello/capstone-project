@@ -10,7 +10,6 @@
 .main-nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   padding: 10px 10px;
 }
 

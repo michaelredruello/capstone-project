@@ -2,7 +2,7 @@
   margin: auto;
 }
 
-input {
+.search-form input {
   font-family: "Roboto", sans-serif;
   color: #333;
   font-size: 1.2rem;
@@ -14,6 +14,23 @@ input {
   width: 90%;
   display: block;
   border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.game-search-form {
+  margin: auto;
+}
+
+.game-search-form input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  display: block;
   transition: all 0.3s;
 }
 
