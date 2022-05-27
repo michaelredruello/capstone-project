@@ -88,7 +88,16 @@ const App = () => {
       <Navbar asChange={asChange} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<GameList addFav={addFav} />} />
+        <Route
+          path="/search"
+          element={
+            <GameList
+              favGames={favGames}
+              addFav={addFav}
+              removeFav={removeFav}
+            />
+          }
+        />
         <Route
           path="/game/:gameID"
           element={
@@ -99,7 +108,12 @@ const App = () => {
             />
           }
         />
-        <Route path="/deals" element={<Deals addFav={addFav} />} />
+        <Route
+          path="/deals"
+          element={
+            <Deals favGames={favGames} addFav={addFav} removeFav={removeFav} />
+          }
+        />
         <Route
           path="/favorite"
           element={

@@ -25,12 +25,12 @@ const GameInfo = (props) => {
 
   useEffect(() => {
     getSteamData();
-    // eslint-disable-next-line
     if (props.favGames.some((favGames) => favGames.title === title)) {
       setFavorite(true);
     } else {
       setFavorite(false);
     }
+    // eslint-disable-next-line
   }, []);
 
   const config = {

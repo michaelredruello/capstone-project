@@ -1,6 +1,6 @@
 import axios from "axios";
 import StoreInfos from "./StoreInfos";
-import { MdAddAlert } from "react-icons/md";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { useState, useEffect } from "react";
 
 const DealCard = ({
@@ -12,12 +12,20 @@ const DealCard = ({
   storeID,
   normalPrice,
   thumb,
+  favGames,
   addFav,
+  removeFav,
 }) => {
   const [game, setGame] = useState([]);
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     getGame(gameID);
+    if (favGames.some((favGames) => favGames.title === title)) {
+      setFavorite(true);
+    } else {
+      setFavorite(false);
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -56,11 +64,22 @@ const DealCard = ({
           </div>
         </div>
       </a>
-      <div
-        className="add-btn"
-        onClick={() => addFav(gameID, title, salePrice, game)}
-      >
-        <MdAddAlert />
+      <div className="add-btn">
+        {favorite ? (
+          <AiFillStar
+            onClick={() => {
+              removeFav(gameID, title);
+              setFavorite(false);
+            }}
+          />
+        ) : (
+          <AiOutlineStar
+            onClick={() => {
+              addFav(gameID, title, salePrice, game);
+              setFavorite(true);
+            }}
+          />
+        )}
       </div>
     </div>
   );

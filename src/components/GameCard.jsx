@@ -1,7 +1,7 @@
 import "./GameCard.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { MdAddAlert } from "react-icons/md";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { useState, useEffect } from "react";
 
 const GameCard = (props) => {
@@ -15,9 +15,15 @@ const GameCard = (props) => {
       },
     },
   });
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     getGame(props.gameID);
+    if (props.favGames.some((favGames) => favGames.title === game.info.title)) {
+      setFavorite(true);
+    } else {
+      setFavorite(false);
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -59,11 +65,22 @@ const GameCard = (props) => {
           </div>
         </div>
       </Link>
-      <div
-        className="add-btn"
-        onClick={() => props.addFav(props.gameID, game.info.title, price, game)}
-      >
-        <MdAddAlert />
+      <div className="add-btn">
+        {favorite ? (
+          <AiFillStar
+            onClick={() => {
+              props.removeFav(props.gameID, game.info.title);
+              setFavorite(false);
+            }}
+          />
+        ) : (
+          <AiOutlineStar
+            onClick={() => {
+              props.addFav(props.gameID, game.info.title, price, game);
+              setFavorite(true);
+            }}
+          />
+        )}
       </div>
     </div>
   );

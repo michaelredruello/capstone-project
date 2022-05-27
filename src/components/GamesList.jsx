@@ -53,7 +53,13 @@ const GameList = (props) => {
       <SortedPrice handleSorted={handleSorted} />
       <div className="game-list-rows">
         {game.map((game) => (
-          <GameCard key={game.gameID} addFav={props.addFav} {...game} />
+          <GameCard
+            key={game.gameID}
+            favGames={props.favGames}
+            addFav={props.addFav}
+            removeFav={props.removeFav}
+            {...game}
+          />
         ))}
       </div>
     </div>

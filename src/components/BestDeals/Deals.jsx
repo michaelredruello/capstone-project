@@ -48,7 +48,13 @@ const Deals = (props) => {
           <LoaderSpin />
         ) : (
           deal.map((deal, i) => (
-            <DealCard key={i} addFav={props.addFav} {...deal} />
+            <DealCard
+              key={i}
+              favGames={props.favGames}
+              addFav={props.addFav}
+              removeFav={props.removeFav}
+              {...deal}
+            />
           ))
         )}
       </div>
