@@ -4,8 +4,8 @@ import Select from "./Select";
 import DealCard from "./DealCard";
 import LoaderSpin from "../Loader";
 
-const Deals = () => {
-  const [deals, setDeals] = useState([]);
+const Deals = (props) => {
+  const [deal, setDeal] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState("savings");
 
@@ -19,7 +19,6 @@ const Deals = () => {
   });
 
   const handleSelectedFilter = (event) => {
-    console.log(event.target.value);
     setSortBy(event.target.value);
   };
 
@@ -31,7 +30,7 @@ const Deals = () => {
       if (response.ok) {
         const data = await response.json();
         setIsLoading(false);
-        setDeals(data);
+        setDeal(data);
       } else {
         console.log("Error fetching best deals");
       }
@@ -44,11 +43,13 @@ const Deals = () => {
     <div className="deals-container container">
       <h2>Discover the bests deals</h2>
       <Select handleSelectedFilter={handleSelectedFilter} />
-      <div className="deals-list-rows">
+      <div className="game-list-rows">
         {isLoading ? (
           <LoaderSpin />
         ) : (
-          deals.map((deal, i) => <DealCard key={i} {...deal} />)
+          deal.map((deal, i) => (
+            <DealCard key={i} addFav={props.addFav} {...deal} />
+          ))
         )}
       </div>
     </div>

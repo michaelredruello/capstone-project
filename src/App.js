@@ -99,7 +99,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/deals" element={<Deals />} />
+        <Route path="/deals" element={<Deals addFav={addFav} />} />
         <Route
           path="/favorite"
           element={
