@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { setStorage, getStorage, checkChanges } from "./utils/storage";
 import { addNotif, removedNotif, alreadyNotif } from "./utils/notifications";
+import { ReactNotifications } from "react-notifications-component";
 
 import Home from "./components/Home";
 import GameList from "./components/GamesList";
@@ -12,7 +13,8 @@ import GameInfo from "./components/GameInfo/GameInfo";
 import Navbar from "./components/Navbar";
 import Deals from "./components/BestDeals/Deals";
 import FavList from "./components/Favourite/FavList";
-import { ReactNotifications } from "react-notifications-component";
+import Login from "./components/Profile/Login";
+import Signup from "./components/Profile/SignUp";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
@@ -124,6 +126,8 @@ const App = () => {
             />
           }
         />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

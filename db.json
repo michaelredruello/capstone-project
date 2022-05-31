@@ -1,19 +1,10 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "email": "redruellomichael@gmail.com",
+      "password": "$2a$10$5BlZhqNhqAksRrnuxiMK7e9qiksePFS4tj8vVWVcb91LElihjkWpa",
+      "username": "Bambi",
+      "id": 1
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

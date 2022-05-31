@@ -13,7 +13,8 @@ const Navbar = ({ asChange }) => {
           </Link>
           {asChange && <div className="red-dot"></div>}
         </div>
-        <Link to="/profile">Profile</Link>
+        <Link to="/login">Log In</Link>
+        <Link to="/register">Sign Up</Link>
       </nav>
     </header>
   );

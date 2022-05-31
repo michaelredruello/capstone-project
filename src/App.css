@@ -27,6 +27,7 @@
   align-self: center;
   display: flex;
   flex-direction: row;
+  margin-right: auto;
 }
 
 .banner {
