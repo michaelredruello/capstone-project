@@ -1,13 +1,13 @@
 import "./Login.css";
 import { useState } from "react";
 
-function Login() {
+const Login = () => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
   });
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3000/login", {
       method: "POST",
@@ -16,11 +16,11 @@ function Login() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data.user));
-  }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   return (
     <div className="container signup-container">
@@ -46,6 +46,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;

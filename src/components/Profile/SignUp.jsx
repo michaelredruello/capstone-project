@@ -1,14 +1,14 @@
 import "./SignUp.css";
 import { useState } from "react";
 
-function Signup() {
+const Signup = () => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
     username: "", // optional
   });
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3000/users", {
       method: "POST",
@@ -17,11 +17,28 @@ function Signup() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-  }
+  };
 
-  function handleChange(e) {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     fetch("http://localhost:3000/users", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  //   } else {
+  //     console.log("error while fetching");
+  //   } catch(e) {
+  //     console.log(e);
+  //   }
+  // }
+
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   return (
     <div className="container signup-container">
@@ -54,6 +71,6 @@ function Signup() {
       </form>
     </div>
   );
-}
+};
 
 export default Signup;
