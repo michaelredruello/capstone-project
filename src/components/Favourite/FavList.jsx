@@ -1,11 +1,8 @@
 import "./FavList.css";
 import FavGame from "./FavGame";
 import logo from "../../imgs/logo-fav.svg";
-import { useState } from "react";
 
 const FavList = ({ removeNotif, removeFav, favGames }) => {
-  const [favorite] = useState(favGames);
-
   return (
     <>
       <section className="banner">
@@ -20,9 +17,9 @@ const FavList = ({ removeNotif, removeFav, favGames }) => {
             </div>
           </div>
           <div className="banner-elem ">
-            {favorite.length > 0 ? (
+            {favGames.length > 0 ? (
               <div className="fav-list">
-                {favorite.map((game) => (
+                {favGames.map((game) => (
                   <FavGame
                     key={game.id}
                     removeFav={removeFav}

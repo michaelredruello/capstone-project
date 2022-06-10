@@ -18,10 +18,6 @@ const Deals = (props) => {
     getDeals();
   });
 
-  const handleSelectedFilter = (event) => {
-    setSortBy(event.target.value);
-  };
-
   const getDeals = async () => {
     try {
       const response = await fetch(
@@ -37,6 +33,10 @@ const Deals = (props) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleSelectedFilter = (event) => {
+    setSortBy(event.target.value);
   };
 
   return (

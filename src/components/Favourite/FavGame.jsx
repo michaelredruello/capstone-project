@@ -1,22 +1,7 @@
 import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
-import { GoIssueClosed } from "react-icons/go";
 
-const FavGame = ({
-  id,
-  title,
-  price,
-  game,
-  newPrice,
-  change,
-  removeFav,
-  removeNotif,
-}) => {
-  const thumb = game.info.thumb;
-  const saving = Math.round(
-    100 - 100 * (parseFloat(newPrice) / parseFloat(price))
-  );
-
+const FavGame = ({ id, title, game, removeFav }) => {
   return (
     <div className="fav-row">
       <Link
@@ -28,29 +13,17 @@ const FavGame = ({
       >
         <span
           className="fav-thumb"
-          style={{ backgroundImage: `url(${thumb})` }}
+          style={{ backgroundImage: `url(${game.info.thumb})` }}
         ></span>
         <div className="game-info-container">
           <div className="game-info">
             <p>{title}</p>
           </div>
-          <div className="game-price-card">
-            <div className="game-savings">
-              {saving > 0 && <p>-{saving} %</p>}
-            </div>
-          </div>
         </div>
       </Link>
-
-      {change ? (
-        <div className="seen-btn" onClick={() => removeNotif(id)}>
-          <GoIssueClosed />
-        </div>
-      ) : (
-        <div className="remove-btn" onClick={() => removeFav(id, title)}>
-          <MdClose />
-        </div>
-      )}
+      <div className="remove-btn" onClick={() => removeFav(id, title)}>
+        <MdClose />
+      </div>
     </div>
   );
 };

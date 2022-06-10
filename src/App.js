@@ -3,7 +3,6 @@ import "react-notifications-component/dist/theme.css";
 
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { setStorage, getStorage, checkChanges } from "./utils/storage";
 import { addNotif, removedNotif, alreadyNotif } from "./utils/notifications";
 import { ReactNotifications } from "react-notifications-component";
 
@@ -18,24 +17,17 @@ import Signup from "./components/Profile/SignUp";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
-  const [asChange, setAsChange] = useState(false);
 
   useEffect(() => {
-    mountFunction();
+    const favorites = JSON.parse(sessionStorage.getItem("favGames"));
+    if (favorites) {
+      setFavGames(favorites);
+    }
   }, []);
 
   useEffect(() => {
-    setStorage(favGames);
-  });
-
-  const mountFunction = async () => {
-    const storedFavGames = getStorage();
-    const checkedList = await checkChanges(storedFavGames);
-    const asChange = checkedList.some((game) => game.change === true);
-
-    setFavGames(checkedList);
-    setAsChange(asChange);
-  };
+    sessionStorage.setItem("favGames", JSON.stringify(favGames));
+  }, [favGames]);
 
   const addFav = (id, title, price, game) => {
     const gameInfos = {
@@ -51,43 +43,20 @@ const App = () => {
       alreadyNotif(title);
     } else {
       addNotif(title);
-
-      favGames.push(gameInfos);
-      setFavGames(favGames);
+      setFavGames([gameInfos, ...favGames]);
     }
   };
 
   const removeFav = (id, title) => {
-    const removed = favGames.filter((game) => game.id === id);
-    const index = favGames.indexOf(removed[0]);
-    favGames.splice(index, 1);
-
-    setFavGames(favGames);
+    const removed = favGames.filter((game) => game.id !== id);
     removedNotif(title);
-  };
-
-  const removeNotif = (id) => {
-    const changed = favGames.map((game) => {
-      if (game.id === id && game.newPrice !== null) {
-        return {
-          ...game,
-          change: false,
-          price: game.newPrice,
-          newPrice: null,
-        };
-      } else {
-        return game;
-      }
-    });
-
-    setFavGames(changed);
-    setAsChange(false);
+    setFavGames([...removed]);
   };
 
   return (
     <BrowserRouter>
       <ReactNotifications />
-      <Navbar asChange={asChange} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -118,13 +87,7 @@ const App = () => {
         />
         <Route
           path="/favorite"
-          element={
-            <FavList
-              favGames={favGames}
-              removeFav={removeFav}
-              removeNotif={removeNotif}
-            />
-          }
+          element={<FavList favGames={favGames} removeFav={removeFav} />}
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
