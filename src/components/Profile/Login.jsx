@@ -1,21 +1,29 @@
 import "./Login.css";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+const Login = ({ loginProfile }) => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
   });
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data.user));
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        loginProfile();
+        navigate("/");
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleChange = (e) => {

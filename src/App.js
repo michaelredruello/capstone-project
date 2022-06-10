@@ -17,6 +17,7 @@ import Signup from "./components/Profile/SignUp";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
     const favorites = JSON.parse(sessionStorage.getItem("favGames"));
@@ -53,10 +54,14 @@ const App = () => {
     setFavGames([...removed]);
   };
 
+  const loginProfile = () => {
+    setLogin(true);
+  };
+
   return (
     <BrowserRouter>
       <ReactNotifications />
-      <Navbar />
+      <Navbar login={login} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -89,8 +94,11 @@ const App = () => {
           path="/favorite"
           element={<FavList favGames={favGames} removeFav={removeFav} />}
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Signup />} />
+        <Route path="/login" element={<Login loginProfile={loginProfile} />} />
+        <Route
+          path="/register"
+          element={<Signup loginProfile={loginProfile} />}
+        />
       </Routes>
     </BrowserRouter>
   );

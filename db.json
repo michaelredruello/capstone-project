@@ -5,6 +5,18 @@
       "password": "$2a$10$5BlZhqNhqAksRrnuxiMK7e9qiksePFS4tj8vVWVcb91LElihjkWpa",
       "username": "Bambi",
       "id": 1
+    },
+    {
+      "email": "yersman@gmail.com",
+      "password": "$2a$10$TB4JpWEqOJPC7tG2s002nueKjNVzwfgFP89W9L6KCn1KsD.L5PfMy",
+      "username": "Brothero",
+      "id": 2
+    },
+    {
+      "email": "aaa@gmail.com",
+      "password": "$2a$10$c1wJapiarIC/2N.jgU4kBeuLdLDXKiZctdcmbNrpiw7FVkueQiyZG",
+      "username": "aaa",
+      "id": 3
     }
   ]
 }

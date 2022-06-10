@@ -36,10 +36,6 @@ const GameCard = (props) => {
       });
   };
 
-  const savings = game.deals[0].savings;
-  const price = game.deals[0].price;
-  const thumb = { backgroundImage: `url(${props.thumb})` };
-
   return (
     <div className="gamecard-row">
       <Link
@@ -49,18 +45,25 @@ const GameCard = (props) => {
         }}
         state={{ game: game }}
       >
-        <span className="card-thumb" style={thumb}></span>
+        <span
+          className="card-thumb"
+          style={{ backgroundImage: `url(${props.thumb})` }}
+        ></span>
         <div className="game-info-container">
           <div className="game-info">
             <p>{game.info.title}</p>
           </div>
           <div className="game-price-card">
             <div className="game-savings">
-              {savings > 0 ? <p>-{Math.round(savings)}%</p> : ""}
+              {game.deals[0].savings > 0 ? (
+                <p>-{Math.round(game.deals[0].savings)}%</p>
+              ) : (
+                ""
+              )}
             </div>
             <div>
               <p>Best deal</p>
-              <p>{price} $</p>
+              <p>{game.deals[0].price} $</p>
             </div>
           </div>
         </div>
@@ -76,7 +79,12 @@ const GameCard = (props) => {
         ) : (
           <AiOutlineStar
             onClick={() => {
-              props.addFav(props.gameID, game.info.title, price, game);
+              props.addFav(
+                props.gameID,
+                game.info.title,
+                game.deals[0].price,
+                game
+              );
               setFavorite(true);
             }}
           />

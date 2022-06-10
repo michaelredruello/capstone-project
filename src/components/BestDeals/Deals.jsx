@@ -1,5 +1,5 @@
 import "./Deals.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Select from "./Select";
 import DealCard from "./DealCard";
 import LoaderSpin from "../Loader";
@@ -41,7 +41,7 @@ const Deals = (props) => {
 
   return (
     <div className="deals-container container">
-      <h2>Discover the bests deals</h2>
+      <h2>Discover the best deals</h2>
       <Select handleSelectedFilter={handleSelectedFilter} />
       <div className="game-list-rows">
         {isLoading ? (
