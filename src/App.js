@@ -99,6 +99,7 @@ const App = () => {
           path="/register"
           element={<Signup loginProfile={loginProfile} />}
         />
+        <Route path="/profile" />
       </Routes>
     </BrowserRouter>
   );
