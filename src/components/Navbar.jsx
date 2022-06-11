@@ -6,16 +6,18 @@ const Navbar = ({ login }) => {
       <nav className="main-nav container">
         <Link to="/">Search</Link>
         <Link to="/deals">Best deals</Link>
-        <div className="nav-alert">
-          <Link to="/favorite">Wishlist</Link>
-        </div>
         {login ? (
-          <Link to="/profile">Profile</Link>
-        ) : (
           <>
+            <Link to="/favorite">Wishlist</Link>
+            <div className="navbar-section">
+              <Link to="/profile">Profile</Link>
+            </div>
+          </>
+        ) : (
+          <div className="navbar-section">
             <Link to="/login">Log In</Link>
             <Link to="/register">Sign Up</Link>
-          </>
+          </div>
         )}
       </nav>
     </header>

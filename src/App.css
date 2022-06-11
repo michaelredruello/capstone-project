@@ -23,11 +23,11 @@
   border-bottom: 1px solid #fff;
 }
 
-.nav-alert {
+.navbar-section {
   align-self: center;
   display: flex;
   flex-direction: row;
-  margin-right: auto;
+  margin-left: auto;
 }
 
 .banner {
