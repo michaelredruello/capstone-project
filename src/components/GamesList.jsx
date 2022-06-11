@@ -17,7 +17,7 @@ const GameList = (props) => {
       const filteredPrice = [...game].sort(byPrice);
       setGame(filteredPrice);
     } else {
-      setGame(location.state);
+      setGame(location.state.game);
     }
   };
 
