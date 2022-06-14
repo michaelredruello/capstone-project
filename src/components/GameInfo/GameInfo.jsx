@@ -9,6 +9,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 const GameInfo = (props) => {
   const [steamData, setSteamData] = useState([]);
+  const [steamReviews, setSteamReviews] = useState([]);
   const [favorite, setFavorite] = useState(false);
 
   let location = useLocation();
@@ -25,6 +26,7 @@ const GameInfo = (props) => {
 
   useEffect(() => {
     getSteamData();
+    getSteamReviews();
     if (props.favGames.some((favGames) => favGames.title === title)) {
       setFavorite(true);
     } else {
@@ -46,6 +48,20 @@ const GameInfo = (props) => {
       .then((res) => res.data)
       .then((data) => {
         setSteamData(data);
+      });
+  };
+
+  const getSteamReviews = () => {
+    axios
+      .get(
+        `https://steam2.p.rapidapi.com/appReviews/${steamAppID}/limit/40/*`,
+        {
+          headers: config,
+        }
+      )
+      .then((res) => res.data)
+      .then((data) => {
+        setSteamReviews(data.reviews);
       });
   };
 
@@ -86,6 +102,14 @@ const GameInfo = (props) => {
           <div className="banner-elem img-container">
             <PriceList deals={deals} />
           </div>
+        </div>
+        <div>
+          {steamReviews.map((review) => (
+            <>
+              <h2>{review.author.steamid}</h2>
+              <p>{review.review}</p>
+            </>
+          ))}
         </div>
       </section>
     </div>

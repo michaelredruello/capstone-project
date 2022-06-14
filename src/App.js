@@ -14,20 +14,21 @@ import Deals from "./components/BestDeals/Deals";
 import FavList from "./components/Favourite/FavList";
 import Login from "./components/Profile/Login";
 import Signup from "./components/Profile/SignUp";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
-    const favorites = JSON.parse(sessionStorage.getItem("favGames"));
+    const favorites = JSON.parse(localStorage.getItem("favGames"));
     if (favorites) {
       setFavGames(favorites);
     }
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem("favGames", JSON.stringify(favGames));
+    localStorage.setItem("favGames", JSON.stringify(favGames));
   }, [favGames]);
 
   const addFav = (id, title, price, game) => {
@@ -99,7 +100,7 @@ const App = () => {
           path="/register"
           element={<Signup loginProfile={loginProfile} />}
         />
-        <Route path="/profile" />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );
