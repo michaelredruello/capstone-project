@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = ({ login }) => {
+const Navbar = ({ login, username }) => {
   return (
     <header className="bg-white">
       <nav className="main-nav container">
@@ -10,7 +10,7 @@ const Navbar = ({ login }) => {
           <>
             <Link to="/favorite">Wishlist</Link>
             <div className="navbar-section">
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile">{username}</Link>
             </div>
           </>
         ) : (

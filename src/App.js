@@ -20,6 +20,7 @@ const App = () => {
   const [favGames, setFavGames] = useState([]);
   const [login, setLogin] = useState(false);
   const [userID, setUserID] = useState("");
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favGames"));
@@ -63,7 +64,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <ReactNotifications />
-      <Navbar login={login} />
+      <Navbar login={login} username={username} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -98,11 +99,23 @@ const App = () => {
         />
         <Route
           path="/login"
-          element={<Login loginProfile={loginProfile} setUserID={setUserID} />}
+          element={
+            <Login
+              loginProfile={loginProfile}
+              setUserID={setUserID}
+              setUsername={setUsername}
+            />
+          }
         />
         <Route
           path="/register"
-          element={<Signup loginProfile={loginProfile} setUserID={setUserID} />}
+          element={
+            <Signup
+              loginProfile={loginProfile}
+              setUserID={setUserID}
+              setUsername={setUsername}
+            />
+          }
         />
         <Route path="/profile" element={<Profile userID={userID} />} />
       </Routes>

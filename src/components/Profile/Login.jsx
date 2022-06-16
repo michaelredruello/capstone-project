@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const Login = ({ loginProfile, setUserID }) => {
+const Login = ({ loginProfile, setUserID, setUsername }) => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
@@ -32,6 +32,7 @@ const Login = ({ loginProfile, setUserID }) => {
       if (res.ok) {
         const data = await res.json();
         setUserID(data.user.id);
+        setUsername(data.user.firstName);
         loginProfile();
         navigate("/");
       }

@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const Signup = ({ loginProfile, setUserID }) => {
+const Signup = ({ loginProfile, setUserID, setUsername }) => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
@@ -33,6 +33,7 @@ const Signup = ({ loginProfile, setUserID }) => {
         const data = await res.json();
         alert("data saved successfully");
         setUserID(data.user.id);
+        setUsername(data.user.firstName);
         loginProfile();
         navigate("/");
       }
