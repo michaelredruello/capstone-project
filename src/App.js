@@ -19,6 +19,7 @@ import Profile from "./components/Profile/Profile";
 const App = () => {
   const [favGames, setFavGames] = useState([]);
   const [login, setLogin] = useState(false);
+  const [userID, setUserID] = useState("");
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favGames"));
@@ -95,12 +96,15 @@ const App = () => {
           path="/favorite"
           element={<FavList favGames={favGames} removeFav={removeFav} />}
         />
-        <Route path="/login" element={<Login loginProfile={loginProfile} />} />
+        <Route
+          path="/login"
+          element={<Login loginProfile={loginProfile} setUserID={setUserID} />}
+        />
         <Route
           path="/register"
-          element={<Signup loginProfile={loginProfile} />}
+          element={<Signup loginProfile={loginProfile} setUserID={setUserID} />}
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile userID={userID} />} />
       </Routes>
     </BrowserRouter>
   );

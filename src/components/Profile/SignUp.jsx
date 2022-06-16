@@ -2,13 +2,13 @@ import "./SignUp.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const Signup = ({ loginProfile }) => {
+const Signup = ({ loginProfile, setUserID }) => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
     username: "", // optional
   });
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +19,9 @@ const Signup = ({ loginProfile }) => {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
+        const data = await res.json();
         alert("data saved successfully");
+        setUserID(data.user.id);
         loginProfile();
         navigate("/");
       }

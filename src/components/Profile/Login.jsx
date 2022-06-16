@@ -2,11 +2,10 @@ import "./Login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const Login = ({ loginProfile }) => {
+const Login = ({ loginProfile, setUserID }) => {
   const [formData, setFormData] = useState({
     email: "", // required
     password: "", // required
-    id: "",
   });
   const navigate = useNavigate();
 
@@ -19,6 +18,8 @@ const Login = ({ loginProfile }) => {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
+        const data = await res.json();
+        setUserID(data.user.id);
         loginProfile();
         navigate("/");
       }

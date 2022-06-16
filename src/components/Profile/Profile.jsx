@@ -1,16 +1,17 @@
 import "./Profile.css";
 import { useState, useEffect } from "react";
 
-const Profile = () => {
+const Profile = ({ userID }) => {
   const [user, setUser] = useState("");
 
   useEffect(() => {
     getUser();
+    // eslint-disable-next-line
   }, []);
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:3000/users/3");
+      const response = await fetch(`http://localhost:3000/users/${userID}`);
       if (response.ok) {
         const users = await response.json();
         setUser(users);
@@ -52,12 +53,6 @@ const Profile = () => {
                         <p className="f-w-600">Email</p>
                         <h6 className="m-b-10 text-muted f-w-400">
                           {user.email}
-                        </h6>
-                      </div>
-                      <div className="col-sm-6">
-                        <p className="f-w-600">Phone</p>
-                        <h6 className="m-b-10 text-muted f-w-400">
-                          98979989898
                         </h6>
                       </div>
                     </div>

@@ -17,6 +17,18 @@
       "password": "$2a$10$c1wJapiarIC/2N.jgU4kBeuLdLDXKiZctdcmbNrpiw7FVkueQiyZG",
       "username": "aaa",
       "id": 3
+    },
+    {
+      "email": "threeara@hotmail.it",
+      "password": "$2a$10$/bgm2zDW2aj1Fi7zxjqP0O8Q0Xm/SmR3FPH8Sck1eEM.BrWID0Wh2",
+      "username": "Threeara",
+      "id": 4
+    },
+    {
+      "email": "chickenmcnugget@sisi.com",
+      "password": "$2a$10$wkuDy3oc8pAAd7GObBeM0OXxK7HG.b7vHgFqVSSQYlztw7mUVw1CC",
+      "username": "pollo",
+      "id": 5
     }
   ]
 }
