@@ -7,6 +7,7 @@ const option = {
 const Select = ({ handleSelectedFilter }) => {
   return (
     <div className="filter-selector">
+      <p>Sort By:</p>
       <select onChange={handleSelectedFilter}>
         <option style={option} value="Savings">
           Savings
