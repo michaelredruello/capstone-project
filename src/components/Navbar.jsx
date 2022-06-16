@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
 
 const Navbar = ({ login, username }) => {
   return (
@@ -11,6 +12,7 @@ const Navbar = ({ login, username }) => {
             <Link to="/favorite">Wishlist</Link>
             <div className="navbar-section">
               <Link to="/profile">{username}</Link>
+              <Avatar sx={{ width: 30, height: 30, alignSelf: "center" }} />
             </div>
           </>
         ) : (
