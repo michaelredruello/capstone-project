@@ -1,5 +1,6 @@
 import "./Profile.css";
 import { useState, useEffect } from "react";
+import Avatar from "@mui/material/Avatar";
 
 const Profile = ({ userID }) => {
   const [user, setUser] = useState("");
@@ -32,16 +33,8 @@ const Profile = ({ userID }) => {
               <div className="row m-l-0 m-r-0">
                 <div className="col-sm-4 bg-c-lite-green user-profile">
                   <div className="card-block text-center text-white">
-                    <div className="m-b-25">
-                      <img
-                        src="https://img.icons8.com/bubbles/100/000000/user.png"
-                        className="img-radius"
-                        alt="User-Profile"
-                      />
-                    </div>
-                    <h6 className="f-w-600">
-                      {user.firstName} {user.lastName}
-                    </h6>
+                    <Avatar sx={{ m: 2, width: 56, height: 56 }} />
+                    {user.firstName} {user.lastName}
                     <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                   </div>
                 </div>
