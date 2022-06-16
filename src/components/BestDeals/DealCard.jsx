@@ -43,6 +43,7 @@ const DealCard = ({
       <a
         className="game-card"
         href={`https://www.cheapshark.com/redirect?dealID=${dealID}`}
+        target="_blank"
       >
         <span
           className="card-thumb"

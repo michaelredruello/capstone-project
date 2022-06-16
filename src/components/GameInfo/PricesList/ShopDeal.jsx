@@ -35,6 +35,7 @@ class ShopDeal extends Component {
       <a
         className="store-price"
         href={`https://www.cheapshark.com/redirect?dealID=${dealID}`}
+        target="_blank"
       >
         <div className="store-price-info">
           <img
