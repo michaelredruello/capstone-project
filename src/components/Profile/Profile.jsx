@@ -39,7 +39,9 @@ const Profile = ({ userID }) => {
                         alt="User-Profile"
                       />
                     </div>
-                    <h6 className="f-w-600">{user.username}</h6>
+                    <h6 className="f-w-600">
+                      {user.firstName} {user.lastName}
+                    </h6>
                     <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                   </div>
                 </div>
