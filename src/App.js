@@ -3,7 +3,12 @@ import "react-notifications-component/dist/theme.css";
 
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { addNotif, removedNotif, alreadyNotif } from "./utils/notifications";
+import {
+  addNotif,
+  removedNotif,
+  alreadyNotif,
+  notLogNotif,
+} from "./utils/notifications";
 import { ReactNotifications } from "react-notifications-component";
 
 import Home from "./components/Home";
@@ -15,6 +20,7 @@ import FavList from "./components/Favourite/FavList";
 import Login from "./components/Profile/Login";
 import Signup from "./components/Profile/SignUp";
 import Profile from "./components/Profile/Profile";
+import Userlist from "./components/Users/Userlist";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
@@ -43,11 +49,15 @@ const App = () => {
       game: game,
     };
 
-    if (favGames.some((favGames) => favGames.title === title)) {
-      alreadyNotif(title);
+    if (!login) {
+      notLogNotif();
     } else {
-      addNotif(title);
-      setFavGames([gameInfos, ...favGames]);
+      if (favGames.some((favGames) => favGames.title === title)) {
+        alreadyNotif(title);
+      } else {
+        addNotif(title);
+        setFavGames([gameInfos, ...favGames]);
+      }
     }
   };
 
@@ -118,6 +128,7 @@ const App = () => {
           }
         />
         <Route path="/profile" element={<Profile userID={userID} />} />
+        <Route path="/users" element={<Userlist userID={userID} />} />
       </Routes>
     </BrowserRouter>
   );

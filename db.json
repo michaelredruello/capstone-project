@@ -6,6 +6,20 @@
       "firstName": "Michael",
       "lastName": "Redruello",
       "id": 1
+    },
+    {
+      "email": "veroitaliano@italia.it",
+      "password": "$2a$10$wWMzo5Mj.Ah.fFYkuDVx.uLuGdqBErBuSCIlJY91TjIf4mKwEiHmy",
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "id": 2
+    },
+    {
+      "email": "polletto@gmail.com",
+      "password": "$2a$10$Npcfi8TnjOtdA/2Ksmt6Bu6RUsJlVkKSMe/8RWIZJzk8r316Wa1XW",
+      "firstName": "Chiara",
+      "lastName": "Pulcino",
+      "id": 3
     }
   ]
 }

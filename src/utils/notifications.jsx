@@ -47,3 +47,19 @@ export const alreadyNotif = (title) => {
     },
   });
 };
+
+export const notLogNotif = () => {
+  Store.addNotification({
+    title: "You need to login to add games to favorites",
+    message: "  ",
+    type: "danger",
+    insert: "top",
+    container: "bottom-right",
+    animationIn: ["animated", "fadeIn"],
+    animationOut: ["animated", "fadeOut"],
+    dismiss: {
+      duration: 2000,
+      onScreen: false,
+    },
+  });
+};

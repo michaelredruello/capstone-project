@@ -7,6 +7,7 @@ const Navbar = ({ login, username }) => {
       <nav className="main-nav container">
         <Link to="/">Search</Link>
         <Link to="/deals">Best deals</Link>
+        <Link to="/users">User List</Link>
         {login ? (
           <>
             <Link to="/favorite">Wishlist</Link>
