@@ -34,12 +34,12 @@
   transition: all 0.3s;
 }
 
-.direct-search-desult {
+.direct-search-result {
   position: absolute;
-  width: 450px;
+  width: 505px;
 }
 
-.direct-search-desult a {
+.direct-search-result a {
   display: flex;
   text-decoration: none;
   color: #fff;
@@ -48,11 +48,11 @@
   padding: 10px 20px;
 }
 
-.direct-search-desult a:hover {
+.direct-search-result a:hover {
   background-color: #16202b;
 }
 
-.direct-search-desult a img {
+.direct-search-result a img {
   max-height: 90px;
   width: 80px;
   margin-right: 1.5rem;
@@ -67,4 +67,18 @@
   padding: 10px 0;
   text-align: center;
   background-color: #16202b;
+}
+
+@media (max-width: 400px) {
+  .direct-search-result {
+    width: 136px;
+    padding: 5px 39px;
+  }
+  .result-card-info {
+    font-size: 12px;
+  }
+  .card-thumb {
+    width: 30px;
+    height: 30px;
+  }
 }

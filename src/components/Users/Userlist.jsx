@@ -32,7 +32,7 @@ const Userlist = ({ userID }) => {
             return user.id !== userID;
           })
           .map((user) => (
-            <User key={user.id} {...user} />
+            <User key={user.id} userID={userID} {...user} />
           ))}
       </List>
     </Container>

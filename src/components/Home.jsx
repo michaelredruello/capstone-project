@@ -7,15 +7,13 @@ const Home = () => {
     <div className="home">
       <section className="banner">
         <div className="container banner-container">
-          <div className="banner-elem">
-            <div className="banner-text">
-              <h1>Find your game at the best price</h1>
-              <p>
-                Search between 25+ game platform, including <span>Steam</span>,{" "}
-                <span>Origin</span> and the <span>EpicGameStore</span> .
-              </p>
-              <Search />
-            </div>
+          <div className="banner-text">
+            <h1>Find your game at the best price</h1>
+            <p>
+              Search between 25+ game platform, including <span>Steam</span>,{" "}
+              <span>Origin</span> and the <span>EpicGameStore</span> .
+            </p>
+            <Search />
           </div>
           <div className="banner-elem img-container">
             <img className="banner-img" src={logo} alt="banner_img" />

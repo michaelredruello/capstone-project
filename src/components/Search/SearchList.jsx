@@ -3,7 +3,7 @@ import SearchResult from "./SearchResult";
 
 const SearchList = ({ games }) => {
   return (
-    <div className="direct-search-desult">
+    <div className="direct-search-result">
       {games.length > 0 ? (
         games.map((game) => <SearchResult key={game.gameID} {...game} />)
       ) : (

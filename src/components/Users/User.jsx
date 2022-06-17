@@ -4,12 +4,33 @@ import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import { useState } from "react";
 
 const User = (props) => {
+  const [friends] = useState([
+    {
+      friends: props.id,
+    },
+  ]);
+
+  const addFriend = async () => {
+    await fetch(`http://localhost:3000/users/${props.userID}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(friends),
+    });
+  };
+
   return (
     <ListItem
       secondaryAction={
-        <IconButton edge="end" aria-label="delete">
+        <IconButton
+          edge="end"
+          aria-label="delete"
+          onClick={() => {
+            addFriend();
+          }}
+        >
           <PersonAddIcon />
         </IconButton>
       }

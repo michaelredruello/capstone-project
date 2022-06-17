@@ -6,6 +6,9 @@ import PriceList from "./PricesList/PriceList";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 const GameInfo = (props) => {
   const [steamData, setSteamData] = useState([]);
@@ -105,10 +108,31 @@ const GameInfo = (props) => {
         </div>
         <div>
           {steamReviews.map((review) => (
-            <>
-              <h2>{review.author.steamid}</h2>
-              <p>{review.review}</p>
-            </>
+            <Box
+              sx={{
+                width: 500,
+                marginTop: 5,
+                backgroundColor: "white",
+                borderRadius: "20px",
+                border: "solid",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  sx={{ fontSize: 14 }}
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  Playtime: {review.author.playtime_forever}
+                </Typography>
+                <Typography variant="h5" component="div" color="text.primary">
+                  {review.author.steamid}
+                </Typography>
+                <Typography variant="body2" color="text.primary">
+                  {review.review}
+                </Typography>
+              </CardContent>
+            </Box>
           ))}
         </div>
       </section>
