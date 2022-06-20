@@ -20,6 +20,13 @@
       "firstName": "Chiara",
       "lastName": "Pulcino",
       "id": 3
+    },
+    {
+      "email": "ilbuffone@gmail.com",
+      "password": "$2a$10$EsIt2IyJWm0yJeN.A/b.AuPdvu88x8ftE6R2Zl5Dl75k9.vlwdjti",
+      "firstName": "Cocci",
+      "lastName": "Buffone",
+      "id": 4
     }
   ]
 }

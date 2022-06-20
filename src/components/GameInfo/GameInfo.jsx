@@ -111,22 +111,25 @@ const GameInfo = (props) => {
             <Box
               sx={{
                 width: 500,
+                height: 300,
                 marginTop: 5,
                 backgroundColor: "white",
-                borderRadius: "20px",
-                border: "solid",
               }}
             >
               <CardContent>
+                <Typography
+                  variant="caption"
+                  component="div"
+                  color="text.primary"
+                >
+                  User id: {review.author.steamid}
+                </Typography>
                 <Typography
                   sx={{ fontSize: 14 }}
                   color="text.secondary"
                   gutterBottom
                 >
                   Playtime: {review.author.playtime_forever}
-                </Typography>
-                <Typography variant="h5" component="div" color="text.primary">
-                  {review.author.steamid}
                 </Typography>
                 <Typography variant="body2" color="text.primary">
                   {review.review}

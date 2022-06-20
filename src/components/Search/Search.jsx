@@ -19,7 +19,7 @@ const Search = () => {
       });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/search", { state: { game: game } });
   };

@@ -7,15 +7,11 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useState } from "react";
 
 const User = (props) => {
-  const [friends] = useState([
-    {
-      friends: props.id,
-    },
-  ]);
+  const [friends] = useState([]);
 
   const addFriend = async () => {
     await fetch(`http://localhost:3000/users/${props.userID}`, {
-      method: "PATCH",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(friends),
     });
