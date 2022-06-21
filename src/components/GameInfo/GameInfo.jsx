@@ -9,9 +9,10 @@ import { useLocation, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Skeleton from "@mui/material/Skeleton";
 
 const GameInfo = (props) => {
-  const [steamData, setSteamData] = useState([]);
+  const [steamData, setSteamData] = useState(false);
   const [steamReviews, setSteamReviews] = useState([]);
   const [favorite, setFavorite] = useState(false);
 
@@ -57,7 +58,7 @@ const GameInfo = (props) => {
   const getSteamReviews = () => {
     axios
       .get(
-        `https://steam2.p.rapidapi.com/appReviews/${steamAppID}/limit/40/*`,
+        `https://steam2.p.rapidapi.com/appReviews/${steamAppID}/limit/15/*`,
         {
           headers: config,
         }
@@ -75,7 +76,16 @@ const GameInfo = (props) => {
           <div className="banner-elem">
             <div className="banner-info">
               <h1>{title}</h1>
-              <img src={steamData.imgUrl} alt="game-banner img" />
+              {steamData ? (
+                <img src={steamData.imgUrl} alt="game-banner img" />
+              ) : (
+                <Skeleton
+                  variant="rectangular"
+                  width={800}
+                  height={400}
+                  animation="wave"
+                />
+              )}
               <p>{steamData.description}</p>
               <div className="note-boxes">
                 <DealRating dealID={dealID} />
