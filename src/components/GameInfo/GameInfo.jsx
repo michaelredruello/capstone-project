@@ -26,7 +26,6 @@ const GameInfo = (props) => {
   const gameID = useParams();
 
   const API_KEY = process.env.REACT_APP_STEAM_API_KEY;
-  console.log(process.env.REACT_APP_STEAM_API_KEY;);
 
   useEffect(() => {
     getSteamData();
