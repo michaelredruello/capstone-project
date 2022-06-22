@@ -3,13 +3,15 @@ import axios from "axios";
 import Note from "./Note";
 import DealRating from "./DealRating";
 import PriceList from "./PricesList/PriceList";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
+import { Divider } from "@mui/material";
+import ReadMoreReact from "read-more-react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 const GameInfo = (props) => {
   const [steamData, setSteamData] = useState(false);
@@ -121,28 +123,39 @@ const GameInfo = (props) => {
             <Box
               sx={{
                 width: 500,
-                height: 300,
+                minHeight: 300,
                 marginTop: 5,
-                backgroundColor: "white",
+                backgroundColor: "#1b2838",
+                border: "3px solid #2daae1",
               }}
             >
               <CardContent>
-                <Typography
-                  variant="caption"
-                  component="div"
-                  color="text.primary"
-                >
-                  User id: {review.author.steamid}
+                <Typography variant="caption" component="div" color="white">
+                  <div>User id: {review.author.steamid}</div>
+                  <div>
+                    Playtime: {review.author.playtime_forever} Posted:{" "}
+                    {new Date(
+                      review.timestamp_created * 1000
+                    ).toLocaleDateString("en-us", {
+                      timeZone: "utc",
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </div>
                 </Typography>
+                <Divider
+                  sx={{
+                    marginTop: "4px",
+                    borderColor: "#2daae1",
+                  }}
+                />
                 <Typography
-                  sx={{ fontSize: 14 }}
-                  color="text.secondary"
-                  gutterBottom
+                  variant="body1"
+                  color="white"
+                  sx={{ marginTop: "4px" }}
                 >
-                  Playtime: {review.author.playtime_forever}
-                </Typography>
-                <Typography variant="body2" color="text.primary">
-                  {review.review}
+                  <ReadMoreReact text={review.review} />
                 </Typography>
               </CardContent>
             </Box>

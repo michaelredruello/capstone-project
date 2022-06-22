@@ -37,7 +37,6 @@ const User = (props) => {
       <ListItemText
         sx={{ color: "black" }}
         primary={props.firstName + " " + props.lastName}
-        secondary={props.email}
       />
     </ListItem>
   );
