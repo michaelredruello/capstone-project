@@ -21,7 +21,7 @@
     "react-content-loader": "^6.2.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
-    "react-loader-spinner": "^6.0.0-0",
+    "react-loader-spinner": "5.3.4",
     "react-notifications-component": "^4.0.0",
     "react-redux": "^8.0.0",
     "react-router": "^6.3.0",
