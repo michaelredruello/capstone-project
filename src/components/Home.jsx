@@ -11,7 +11,7 @@ const Home = () => {
             <h1>Find your game at the best price</h1>
             <p>
               Search between 25+ game platform, including <span>Steam</span>,{" "}
-              <span>Origin</span> and the <span>EpicGameStore</span> .
+              <span>Origin</span> and the <span>EpicGameStore</span>.
             </p>
             <Search />
           </div>
@@ -43,7 +43,7 @@ const Home = () => {
         </div>
       </section>
       <footer className="fixed-bottom">
-        Michael Redruello, Copyright © 2022, All Rights Reserved
+        <p>Michael Redruello Copyright: <span>{new Date().getFullYear()} </span> ©, All Rights Reserved</p>
       </footer>
     </div>
   );

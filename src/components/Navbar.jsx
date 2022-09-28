@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 
 const Navbar = ({ login, username }) => {
   return (
@@ -7,8 +7,7 @@ const Navbar = ({ login, username }) => {
       <nav className="main-nav container">
         <Link to="/">Search</Link>
         <Link to="/deals">Best deals</Link>
-        <Link to="/users">User List</Link>
-        {login ? (
+        {/* {login ? (
           <>
             <Link to="/favorite">Wishlist</Link>
             <div className="navbar-section">
@@ -21,7 +20,7 @@ const Navbar = ({ login, username }) => {
             <Link to="/login">Log In</Link>
             <Link to="/register">Sign Up</Link>
           </div>
-        )}
+        )} */}
       </nav>
     </header>
   );

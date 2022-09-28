@@ -21,12 +21,17 @@ import Login from "./components/Profile/Login";
 import Signup from "./components/Profile/SignUp";
 import Profile from "./components/Profile/Profile";
 import Userlist from "./components/Users/Userlist";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
 
 const App = () => {
   const [favGames, setFavGames] = useState([]);
   const [login, setLogin] = useState(false);
   const [userID, setUserID] = useState("");
   const [username, setUsername] = useState("");
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem("favGames"));
@@ -75,6 +80,27 @@ const App = () => {
     <BrowserRouter>
       <ReactNotifications />
       <Navbar login={login} username={username} />
+      <Collapse in={open}>
+        <Alert
+          variant="filled"
+          severity="error"
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          Login/SignUp and user related feature are currently under maintenance!
+        </Alert>
+      </Collapse>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
