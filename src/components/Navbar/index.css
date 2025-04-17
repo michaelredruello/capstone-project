@@ -1,0 +1,15 @@
+.main-nav {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 10px;
+}
+
+.main-nav a {
+  padding: 10px;
+  margin: 0 5px;
+  color: #58595b;
+}
+
+.main-nav a:hover {
+  border-bottom: 1px solid #fff;
+}

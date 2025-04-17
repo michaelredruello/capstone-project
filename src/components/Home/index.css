@@ -1,0 +1,77 @@
+.first-banner {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-surface);
+  padding: 4rem;
+}
+
+.second-banner {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background-color: var(--color-primary);
+}
+
+.first-banner-text {
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+.first-banner-text p {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.first-banner-text span {
+  color: var(--color-highlight);
+}
+
+.second-banner-text {
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+.first-banner-img-container {
+  display: flex;
+  align-items: center;
+}
+
+.second-banner-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-banner-img {
+  width: 500px;
+  height: auto;
+}
+
+.second-banner-img {
+  max-width: 400px;
+  height: auto;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .first-banner,
+  .second-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .first-banner-text,
+  .second-banner-text,
+  .first-banner-img-container,
+  .second-banner-img-container {
+    flex: 1 1 100%;
+  }
+}
