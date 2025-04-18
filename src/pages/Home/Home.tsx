@@ -7,7 +7,7 @@ const Home = () => {
         <div className="first-banner-text">
           <h1>Find your game at the best price!</h1>
           <p>
-            Search between 25+ game platforms, including <span>Steam</span>,{" "}
+            Search across 25+ platforms including <span>Steam</span>,{" "}
             <span>Origin</span>, and <span>Epic Game Store</span>.
           </p>
         </div>
@@ -15,30 +15,28 @@ const Home = () => {
           <img
             className="first-banner-img"
             src="/ControllerLogo.png"
-            alt="banner"
+            alt="Controller illustration"
           />
         </div>
       </section>
 
       <section className="second-banner">
         <div className="second-banner-img-container">
-          <img className="second-banner-img" src="./Gaming.jpg" alt="banner" />
+          <img
+            className="second-banner-img"
+            src="/Gaming.jpg"
+            alt="Gaming artwork"
+          />
         </div>
         <div className="second-banner-text">
           <h2>Save up to 98% on your games!</h2>
-          <p>With Best Deals, expensive pricing is no longer a problem!</p>
+          <p>With Best Deals, expensive pricing is no longer a problem.</p>
           <p>
-            Find the best price for your favourite game across 25+ different
-            sales platforms.
+            Browse deals from over 25 trusted stores and always get the best
+            price.
           </p>
         </div>
       </section>
-
-      <footer className="footer">
-        <p>
-          © {new Date().getFullYear()} Michael Redruello — All Rights Reserved
-        </p>
-      </footer>
     </main>
   );
 };

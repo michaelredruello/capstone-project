@@ -9,6 +9,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: center;
   background-color: var(--color-primary);
 }
 
@@ -38,8 +39,6 @@
 
 .second-banner-img-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .first-banner-img {
@@ -50,14 +49,6 @@
 .second-banner-img {
   max-width: 400px;
   height: auto;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
 }
 
 /* Responsive */

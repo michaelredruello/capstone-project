@@ -7,18 +7,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --color-primary: #4CAF50;
-  --color-primary-dark: #388E3C;
-  --color-accent: #00C2A8;
-  --color-highlight: #A2FF86;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  --color-bg: #1A1A1A;
-  --color-surface: #222B22;
+  --color-primary: #4caf50;
+  --color-primary-dark: #388e3c;
+  --color-accent: #00c2a8;
+  --color-highlight: #a2ff86;
 
-  --text-primary: #E0E0E0;
-  --text-secondary: #A0A0A0;
+  --color-bg: #1a1a1a;
+  --color-surface: #222b22;
 
-  --color-danger: #FF5F5F;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+
+  --color-danger: #ff5f5f;
 }
 
 body {
