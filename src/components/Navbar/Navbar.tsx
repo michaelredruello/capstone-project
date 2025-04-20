@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 
@@ -13,6 +13,7 @@ type GameSummary = {
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<GameSummary[]>([]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -31,13 +32,30 @@ const Navbar = () => {
     return () => clearTimeout(timeout);
   }, [searchQuery]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setSearchResults([]);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
         BestDeals
       </Link>
+      <Link to="/deals" className="navbar-logo">
+        Deals
+      </Link>
 
-      <div className="navbar-search-container">
+      <div className="navbar-search-container" ref={dropdownRef}>
         <input
           type="text"
           placeholder="Search a game..."

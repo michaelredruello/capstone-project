@@ -1,0 +1,14 @@
+.sort-selector-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 5rem;
+}
+
+.sort-selector {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: var(--color-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--color-accent);
+  font-size: 1rem;
+}
