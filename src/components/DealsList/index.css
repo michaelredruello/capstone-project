@@ -2,20 +2,22 @@
   display: block;
   gap: 1.5rem;
   margin: 2rem 0;
-  padding: 0 4rem;
+  padding: 0 16rem;
   list-style: none;
 }
 
 .deal-card {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
   background-color: var(--color-surface);
+  margin: 1rem;
   padding: 1rem;
   border-radius: 8px;
+  border: 1px solid var(--color-primary);
   transition: transform 0.2s;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 1rem;
-  justify-content: space-between;
+  cursor: pointer;
 }
 
 .deal-card:hover {
@@ -24,8 +26,8 @@
 
 .deal-image {
   width: 100%;
-  max-width: 200px;
-  height: auto;
+  width: 200px;
+  height: 90px;
   border-radius: 4px;
 }
 
@@ -41,6 +43,8 @@
 .price-info {
   font-size: 0.95rem;
   color: var(--text-secondary);
+  display: flex;
+  justify-content: end;
 }
 
 .deal-sale-price {
@@ -51,4 +55,19 @@
 .deal-normal-price {
   text-decoration: line-through;
   margin: 0 0.25rem;
+}
+
+.store-info {
+  margin-right: 1rem;
+}
+
+.store-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
+
+.store-name {
+  color: var(--text-primary);
+  font-size: 1rem;
 }
