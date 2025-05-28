@@ -54,7 +54,7 @@ const Deals = () => {
         <Loader />
       ) : (
         <>
-          <DealsList deals={deals} stores={stores} />
+          <DealsList />
           <Pagination page={page} setPage={setPage} />
         </>
       )}

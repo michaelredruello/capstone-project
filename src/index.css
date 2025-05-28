@@ -35,7 +35,7 @@ body,
 body {
   display: flex;
   flex-direction: column;
-  background-image: url("/public/Backgroud.jpg");
+  background-image: url("/Backgroud.jpg");
   background-size: contain;
   color: var(--text-primary);
 }
