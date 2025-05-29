@@ -1,15 +1,12 @@
 .deals-list {
   display: block;
-  gap: 1.5rem;
   margin: 2rem 0;
   padding: 0 16rem;
-  list-style: none;
 }
 
 .deal-card {
   display: flex;
   justify-content: space-between;
-  text-align: center;
   align-items: center;
   background-color: var(--color-surface);
   margin: 1rem;
@@ -17,7 +14,6 @@
   border-radius: 8px;
   border: 1px solid var(--color-primary);
   transition: transform 0.2s;
-  cursor: pointer;
 }
 
 .deal-card:hover {
@@ -25,7 +21,6 @@
 }
 
 .deal-image {
-  width: 100%;
   width: 200px;
   height: 90px;
   border-radius: 4px;
@@ -38,27 +33,14 @@
 .deal-title {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-}
-
-.price-info {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  display: flex;
-  justify-content: end;
-}
-
-.deal-sale-price {
-  color: var(--color-highlight);
-  font-weight: bold;
-}
-
-.deal-normal-price {
-  text-decoration: line-through;
-  margin: 0 0.25rem;
+  color: var(--text-primary);
 }
 
 .store-info {
-  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0.3rem;
 }
 
 .store-icon {
@@ -68,6 +50,30 @@
 }
 
 .store-name {
+  font-size: 0.95rem;
   color: var(--text-primary);
-  font-size: 1rem;
+}
+
+.price-info {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.deal-sale-price {
+  color: var(--color-highlight);
+  font-weight: bold;
+}
+
+.deal-normal-price {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.discount {
+  color: var(--color-success);
+  font-weight: bold;
 }

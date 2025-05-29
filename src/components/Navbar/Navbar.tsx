@@ -48,12 +48,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        BestDeals
-      </Link>
-      <Link to="/deals" className="navbar-logo">
-        Deals
-      </Link>
+      <div>
+        <Link to="/" className="navbar-logo">
+          Home
+        </Link>
+        <Link to="/deals" className="navbar-logo">
+          BestDeals
+        </Link>
+      </div>
 
       <div className="navbar-search-container" ref={dropdownRef}>
         <input

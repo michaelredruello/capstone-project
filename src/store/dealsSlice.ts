@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 type Deal = {
   dealID: string;
@@ -22,21 +22,25 @@ type Deal = {
 
 type DealsState = {
   deals: Deal[];
-  loading: boolean;
+  isLoading: boolean;
   error: string | null;
+  page: number;
+  sortBy: string;
 };
 
 const initialState: DealsState = {
   deals: [],
-  loading: false,
+  isLoading: false,
   error: null,
+  page: 0,
+  sortBy: "savings",
 };
 
 export const fetchDeals = createAsyncThunk(
   "deals/fetchDeals",
   async ({ page, sortBy }: { page: number; sortBy: string }) => {
     const response = await fetch(
-      `https://www.cheapshark.com/api/1.0/deals?storeID=1&sortBy=${sortBy}&pageSize=20&pageNumber=${page}`
+      `https://www.cheapshark.com/api/1.0/deals?sortBy=${sortBy}&pageSize=20&pageNumber=${page}`
     );
     return await response.json();
   }
@@ -45,22 +49,31 @@ export const fetchDeals = createAsyncThunk(
 const dealsSlice = createSlice({
   name: "deals",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setSortBy: (state, action: PayloadAction<string>) => {
+      state.sortBy = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchDeals.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchDeals.fulfilled, (state, action) => {
         state.deals = action.payload;
-        state.loading = false;
+        state.isLoading = false;
       })
       .addCase(fetchDeals.rejected, (state, action) => {
-        state.loading = false;
+        state.isLoading = false;
         state.error = action.error.message || "Failed to fetch deals";
       });
   },
 });
+
+export const { setPage, setSortBy } = dealsSlice.actions;
 
 export default dealsSlice.reducer;

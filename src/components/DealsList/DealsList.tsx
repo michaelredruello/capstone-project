@@ -12,26 +12,24 @@ const DealsList = () => {
       {deals.map((deal) => {
         const store = stores.find((s) => s.storeID === deal.storeID);
         return (
-          <Link
-            to={{
-              pathname: `/game/${deal.dealID}`,
-            }}
-          >
-            <li key={deal.dealID} className="deal-card">
+          <li key={deal.dealID}>
+            <Link to={`/game/${deal.gameID}`} className="deal-card">
               <img className="deal-image" src={deal.thumb} alt={deal.title} />
               <div className="deal-info">
                 <h3 className="deal-title">{deal.title}</h3>
+
+                {store && (
+                  <div className="store-info">
+                    <img
+                      className="store-icon"
+                      src={`https://www.cheapshark.com${store.images.icon}`}
+                      alt={store.storeName}
+                    />
+                    <span className="store-name">{store.storeName}</span>
+                  </div>
+                )}
+
                 <p className="price-info">
-                  {store && (
-                    <div className="store-info">
-                      <img
-                        className="store-icon"
-                        src={`https://www.cheapshark.com${store.images.icon}`}
-                        alt={store.storeName}
-                      />
-                      <span className="store-name">{store.storeName}</span>
-                    </div>
-                  )}
                   <strong className="deal-sale-price">€{deal.salePrice}</strong>{" "}
                   <span className="deal-normal-price">€{deal.normalPrice}</span>{" "}
                   <span className="discount">
@@ -39,8 +37,8 @@ const DealsList = () => {
                   </span>
                 </p>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         );
       })}
     </ul>

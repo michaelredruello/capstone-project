@@ -57,6 +57,7 @@ const GamePage = () => {
     );
   }
 
+  // Check title for errors
   if (!gameInfo) return <div className="game-error">Game not found.</div>;
 
   return (
