@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import "./index.css";
@@ -13,7 +12,11 @@ const DealsList = () => {
         const store = stores.find((s) => s.storeID === deal.storeID);
         return (
           <li key={deal.dealID}>
-            <Link to={`/game/${deal.gameID}`} className="deal-card">
+            <a
+              className="deal-card"
+              href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
+              target="_blank"
+            >
               <img className="deal-image" src={deal.thumb} alt={deal.title} />
               <div className="deal-info">
                 <h3 className="deal-title">{deal.title}</h3>
@@ -37,7 +40,7 @@ const DealsList = () => {
                   </span>
                 </p>
               </div>
-            </Link>
+            </a>
           </li>
         );
       })}

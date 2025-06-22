@@ -5,7 +5,7 @@ const Home = () => {
     <main>
       <section className="first-banner">
         <div className="first-banner-text">
-          <h1>Find your game at the best price!</h1>
+          <h1>Find your games at the best price!</h1>
           <p>
             Search across 25+ platforms including <span>Steam</span>,{" "}
             <span>Origin</span>, and <span>Epic Game Store</span>.

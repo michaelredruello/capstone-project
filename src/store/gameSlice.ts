@@ -1,5 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+export type Deal = {
+  storeID: string;
+  dealID: string;
+  price: string;
+  retailPrice: string;
+  savings: number;
+};
+
 export type GameInfo = {
   info: {
     title: string;
@@ -10,13 +18,7 @@ export type GameInfo = {
     price: string;
     date: number;
   };
-  deals: Array<{
-    storeID: string;
-    dealID: string;
-    price: string;
-    retailPrice: string;
-    savings: string;
-  }>;
+  deals: Deal[];
 };
 
 type GameState = {
@@ -37,6 +39,7 @@ export const fetchGameInfo = createAsyncThunk(
     const response = await fetch(
       `https://www.cheapshark.com/api/1.0/games?id=${gameID}`
     );
+    if (!response.ok) throw new Error("Failed to fetch game info");
     return await response.json();
   }
 );

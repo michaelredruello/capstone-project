@@ -1,19 +1,30 @@
 .game-page {
+  display: flex;
+  justify-content: space-between;
   padding: 2rem;
   color: var(--color-text);
   background-color: var(--color-background);
 }
 
+.game-page_left {
+  min-height: 78vh;
+  min-width: 50vw;
+}
+
+.game-page_right {
+  text-align: end;
+}
+
 .game-title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: start;
 }
 
 .game-thumb {
   display: block;
-  margin: 0 auto 2rem;
-  max-width: 300px;
+  height: 300px;
+  border: solid 1px var(--color-primary);
   border-radius: 8px;
 }
 
@@ -31,7 +42,7 @@
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   gap: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -51,8 +62,6 @@
 }
 
 .deal-price-info {
-  display: flex;
-  flex-direction: column;
   font-size: 1rem;
 }
 
@@ -60,6 +69,7 @@
   font-size: 1.2rem;
   color: var(--color-highlight);
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .deal-retail {
@@ -86,7 +96,6 @@
   background-color: var(--color-primary-dark);
 }
 
-/* Loading and error */
 .game-loading,
 .game-error {
   text-align: center;

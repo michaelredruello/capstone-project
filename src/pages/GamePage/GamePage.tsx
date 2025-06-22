@@ -1,52 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
+import { fetchGameInfo } from "../../store/gameSlice";
+import { fetchSteamGame } from "../../store/steamSlice";
 import "./index.css";
-
-type Deal = {
-  dealID: string;
-  storeID: string;
-  price: string;
-  retailPrice: string;
-  savings: string;
-};
-
-type GameInfo = {
-  info: {
-    title: string;
-    thumb: string;
-  };
-  deals: Deal[];
-};
 
 const GamePage = () => {
   const { gameID } = useParams();
-  const [gameInfo, setGameInfo] = useState<GameInfo | null>(null);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
-    const fetchGame = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `https://www.cheapshark.com/api/1.0/games?id=${gameID}`
-        );
-        const data = await response.json();
-        setGameInfo(data);
-      } catch (error) {
-        console.error("Failed to fetch game data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (gameID) fetchGame();
-  }, [gameID]);
-
+  const { game, loading, error } = useSelector(
+    (state: RootState) => state.game
+  );
+  const { steamGame, loading: steamLoading } = useSelector(
+    (state: RootState) => state.steam
+  );
   const stores = useSelector((state: RootState) => state.stores.list);
 
-  if (loading) {
+  useEffect(() => {
+    if (gameID) {
+      dispatch(fetchGameInfo(gameID));
+    }
+  }, [gameID, dispatch]);
+
+  useEffect(() => {
+    if (game?.info?.steamAppID) {
+      dispatch(fetchSteamGame(game.info.steamAppID));
+    }
+  }, [game?.info?.steamAppID, dispatch]);
+
+  if (loading || steamLoading) {
     return (
       <div className="game-page">
         <div className="skeleton-thumb"></div>
@@ -57,53 +41,66 @@ const GamePage = () => {
     );
   }
 
-  // Check title for errors
-  if (!gameInfo) return <div className="game-error">Game not found.</div>;
+  if (error || !game) {
+    return <div className="game-error">Game not found or failed to load.</div>;
+  }
+
+  const savingsThreshold = 0.01;
 
   return (
     <div className="game-page">
-      <h1 className="game-title">{gameInfo.info.title}</h1>
-      <img
-        className="game-thumb"
-        src={gameInfo.info.thumb}
-        alt={gameInfo.info.title}
-      />
+      <div className="game-page_left">
+        <h1 className="game-title">{game.info.title}</h1>
+        <img
+          className="game-thumb"
+          src={steamGame?.imgUrl || game.info.thumb}
+          alt={game.info.title}
+        />
+      </div>
 
-      <h2>Available Deals:</h2>
-      <ul className="game-deals">
-        {gameInfo.deals.map((deal) => {
-          const store = stores.find((s) => s.storeID === deal.storeID);
-          return (
-            <li key={deal.dealID} className="game-deal-card">
-              {store && (
-                <div className="deal-store">
-                  <img
-                    className="store-icon"
-                    src={`https://www.cheapshark.com${store.images.icon}`}
-                    alt={store.storeName}
-                  />
-                  <span>{store.storeName}</span>
+      <div className="game-page_right">
+        <h2>Available Deals:</h2>
+        <ul className="game-deals">
+          {game.deals.map((deal) => {
+            const store = stores.find((s) => s.storeID === deal.storeID);
+            const savings = Number(deal.savings);
+
+            return (
+              <li key={deal.dealID} className="game-deal-card">
+                {store && (
+                  <div className="deal-store">
+                    <img
+                      className="store-icon"
+                      src={`https://www.cheapshark.com${store.images.icon}`}
+                      alt={store.storeName}
+                    />
+                    <span>{store.storeName}</span>
+                  </div>
+                )}
+                <div className="deal-price-info">
+                  <span className="deal-price">€{deal.price}</span>
+                  {savings > savingsThreshold && (
+                    <>
+                      <span className="deal-retail">€{deal.retailPrice}</span>
+                      <span className="deal-savings">
+                        -{Math.round(savings)}%
+                      </span>
+                    </>
+                  )}
                 </div>
-              )}
-              <div className="deal-price-info">
-                <span className="deal-price">€{deal.price}</span>
-                <span className="deal-retail">€{deal.retailPrice}</span>
-                <span className="deal-savings">
-                  (-{Math.round(Number(deal.savings))}%)
-                </span>
-              </div>
-              <a
-                href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="deal-link"
-              >
-                Go to Store
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+                <a
+                  href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="deal-link"
+                >
+                  Go to Store
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
