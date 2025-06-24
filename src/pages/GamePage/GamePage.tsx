@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../app/store";
 import { fetchGameInfo } from "../../store/gameSlice";
 import { fetchSteamGame } from "../../store/steamSlice";
 import "./index.css";
+import { FaStore } from "react-icons/fa";
 
 const GamePage = () => {
   const { gameID } = useParams();
@@ -94,7 +95,7 @@ const GamePage = () => {
                   rel="noopener noreferrer"
                   className="deal-link"
                 >
-                  Go to Store
+                  <FaStore />
                 </a>
               </li>
             );

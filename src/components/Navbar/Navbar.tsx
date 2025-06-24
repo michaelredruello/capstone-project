@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
@@ -13,6 +13,7 @@ const Navbar = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const { query, results } = useSelector((state: RootState) => state.search);
 
@@ -51,44 +52,65 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div>
-        <Link to="/" className="navbar-logo">
-          Home
-        </Link>
-        <Link to="/deals" className="navbar-logo">
-          BestDeals
-        </Link>
+      <div className="navbar-left">
+        <button
+          className="hamburger_menu"
+          onClick={() => setSidebarOpen((prev) => !prev)}
+        >
+          ☰
+        </button>
+
+        <div className="navbar-links">
+          <Link to="/" className="navbar-logo">
+            Home
+          </Link>
+          <Link to="/deals" className="navbar-logo">
+            BestDeals
+          </Link>
+        </div>
       </div>
 
       <div className="navbar-search-container" ref={dropdownRef}>
-        <div>
-          <input
-            type="text"
-            placeholder="Search a game..."
-            value={query}
-            onChange={(e) => dispatch(setQuery(e.target.value))}
-          />
-          {results.length > 0 && (
-            <ul className="search-dropdown">
-              {results.map((game) => (
-                <li
-                  key={game.gameID}
-                  className="dropdown-item"
-                  onClick={() => handleSelectGame(game.gameID)}
-                >
-                  <img src={game.thumb} alt={game.external} />
-                  <div className="item-infos">
-                    <div>{game.external}</div>
-                    <div className="price-container">
-                      <span className="price">€{game.cheapest}</span>
-                    </div>
+        <input
+          type="text"
+          placeholder="Search a game..."
+          value={query}
+          onChange={(e) => dispatch(setQuery(e.target.value))}
+        />
+        {results.length > 0 && (
+          <ul className="search-dropdown">
+            {results.map((game) => (
+              <li
+                key={game.gameID}
+                className="dropdown-item"
+                onClick={() => handleSelectGame(game.gameID)}
+              >
+                <img src={game.thumb} alt={game.external} />
+                <div className="dropdown-item-infos">
+                  <div>{game.external}</div>
+                  <div className="price-container">
+                    <span className="price">€{game.cheapest}</span>
                   </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
+
+      {sidebarOpen && (
+        <div className="sidebar">
+          <button className="close-btn" onClick={() => setSidebarOpen(false)}>
+            ☰
+          </button>
+          <Link to="/" onClick={() => setSidebarOpen(false)}>
+            Home
+          </Link>
+          <Link to="/deals" onClick={() => setSidebarOpen(false)}>
+            BestDeals
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

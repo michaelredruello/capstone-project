@@ -45,7 +45,7 @@
   margin-bottom: 0.3rem;
 }
 
-.store-icon {
+.store-icon-list {
   width: 18px;
   height: 18px;
   margin-right: 0.5rem;
@@ -78,4 +78,35 @@
 .discount {
   color: var(--color-success);
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .deals-list {
+    display: block;
+    margin: 1rem 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .deal-card {
+    margin: 0.4rem 0;
+  }
+
+  .deal-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .deal-image {
+    width: 100px;
+    height: 45px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .store-name {
+    font-size: 0.8rem;
+    color: var(--text-primary);
+  }
 }

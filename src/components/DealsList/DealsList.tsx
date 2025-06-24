@@ -24,7 +24,7 @@ const DealsList = () => {
                 {store && (
                   <div className="store-info">
                     <img
-                      className="store-icon"
+                      className="store-icon-list"
                       src={`https://www.cheapshark.com${store.images.icon}`}
                       alt={store.storeName}
                     />

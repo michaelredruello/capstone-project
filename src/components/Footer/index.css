@@ -1,5 +1,4 @@
 .app-footer {
-  width: 100%;
   background-color: var(--color-surface);
   color: var(--color-text);
   padding: 1rem 2rem;
@@ -31,9 +30,8 @@
   color: var(--color-accent);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .footer-content {
-    flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }

@@ -78,10 +78,13 @@ main {
     padding: 2rem 1rem;
   }
 
-  .first-banner-img,
-  .second-banner-img {
-    max-width: 80%;
+  .first-banner-img {
+    max-width: 100%;
     height: auto;
+  }
+
+  .second-banner-img {
+    display: none;
   }
 
   .first-banner-text,
