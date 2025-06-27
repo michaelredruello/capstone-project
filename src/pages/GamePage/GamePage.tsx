@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { fetchGameInfo } from "../../store/gameSlice";
-import { fetchSteamGame } from "../../store/steamSlice";
+import { fetchSteamGame, clearSteamGame } from "../../store/steamSlice";
 import "./index.css";
 import { FaStore } from "react-icons/fa";
 
@@ -26,6 +26,9 @@ const GamePage = () => {
   }, [gameID, dispatch]);
 
   useEffect(() => {
+    //Clear steam thumbnail
+    dispatch(clearSteamGame());
+
     if (game?.info?.steamAppID) {
       dispatch(fetchSteamGame(game.info.steamAppID));
     }
