@@ -19,3 +19,7 @@ Search for any game and see its available deals across multiple stores, with sup
 - 💸 **Deal Info**: Discounts, original prices, savings %, and store names
 - 📱 **Responsive Layout**: Includes hamburger menu & sidebar on small screens
 - ⏳ **Loading Skeletons**: Smooth UI while fetching data
+
+## 🌍 Link
+
+- **Vercel App:** [Best Deals](https://best-deals-orcin.vercel.app/)
