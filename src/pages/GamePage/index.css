@@ -132,11 +132,14 @@
 @media (max-width: 768px) {
   .game-page {
     display: block;
-    min-height: 75%;
   }
 
   .game-page_left {
     min-height: auto;
+  }
+
+  .game-page_right {
+    min-height: 30vh;
   }
 
   .game-page_right > h2 {
