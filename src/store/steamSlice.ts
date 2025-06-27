@@ -1,8 +1,4 @@
-// store/steamSlice.ts
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-const RAPIDAPI_KEY = import.meta.env.VITE_STEAM_API_KEY;
-const RAPIDAPI_HOST = "steam2.p.rapidapi.com";
 
 interface SteamGame {
   imgUrl: string;
@@ -43,19 +39,13 @@ const initialState: SteamState = {
 export const fetchSteamGame = createAsyncThunk(
   "steam/fetchSteamGame",
   async (steamAppID: string) => {
-    const response = await fetch(
-      `https://${RAPIDAPI_HOST}/appDetail/${steamAppID}`,
-      {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": RAPIDAPI_KEY,
-          "X-RapidAPI-Host": RAPIDAPI_HOST,
-        },
-      }
-    );
-    if (!response.ok) throw new Error("Steam API request failed");
-    const data = await response.json();
+    const response = await fetch(`/api/steam?steamAppId=${steamAppID}`);
 
+    if (!response.ok) {
+      throw new Error("Steam API request failed");
+    }
+
+    const data = await response.json();
     return data;
   }
 );
