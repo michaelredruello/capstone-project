@@ -1,21 +1,21 @@
-# Best Deals
+# 🕹️ Best Deals App
 
-Get the best prices for every **pc-games** online.
+Welcome to my app that helps you find the best game deals online!  
+Search for any game and see its available deals across multiple stores, with support for Steam thumbnails and mobile-friendly navigation.
 
-Fetch games from **Steam**, **Origin**, **Epicgame** and many others!
+## 🔧 Tech Stack
 
-<p>&nbsp;</p>
+- **Frontend:** React + Vite
+- **Typing:** Typescript
+- **State Management:** Redux Toolkit
+- **APIs:**
+  - [CheapShark API](https://apidocs.cheapshark.com/)
+  - [Steam API via RapidAPI](https://rapidapi.com/psimavel/api/steam2)
 
-## Getting Started
+## 💡 Features
 
-Clone the repository & install the packages
-
-```
-npm install
-```
-
-On another port start JSON server
-
-```
-json-server db.json -m ./node_modules/json-server-auth
-```
+- 🔍 **Live Search**: Get instant results when typing a game name
+- 🎮 **Game Page**: View all deals for a specific game, from multiple stores
+- 💸 **Deal Info**: Discounts, original prices, savings %, and store names
+- 📱 **Responsive Layout**: Includes hamburger menu & sidebar on small screens
+- ⏳ **Loading Skeletons**: Smooth UI while fetching data

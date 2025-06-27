@@ -1,0 +1,176 @@
+.game-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.game-page_left {
+  min-height: 78vh;
+  min-width: 50vw;
+}
+
+.game-page_right {
+  text-align: end;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: start;
+}
+
+.game-thumb {
+  display: block;
+  height: 300px;
+  border: solid 1px var(--color-primary);
+  border-radius: 8px;
+}
+
+.game-deals {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.game-deal-card {
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.deal-store {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.store-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.deal-price-info {
+  font-size: 1rem;
+}
+
+.deal-price {
+  font-size: 1.2rem;
+  color: var(--color-highlight);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.deal-retail {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.deal-savings {
+  color: var(--color-success);
+  font-size: 0.9rem;
+}
+
+.deal-link {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.deal-link:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.game-loading,
+.game-error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+/* Skeleton loader styles */
+.skeleton-thumb {
+  width: 300px;
+  height: 150px;
+  background: var(--color-surface);
+  border-radius: 8px;
+  margin: 0 auto 2rem;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-card {
+  height: 100px;
+  border-radius: 8px;
+  background: var(--color-surface);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var(--color-surface);
+  }
+  50% {
+    background-color: #444;
+  }
+  100% {
+    background-color: var(--color-surface);
+  }
+}
+
+@media (max-width: 768px) {
+  .game-page {
+    display: block;
+    min-height: 75%;
+  }
+
+  .game-page_left {
+    min-height: auto;
+  }
+
+  .game-page_right > h2 {
+    display: none;
+  }
+
+  .game-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: start;
+  }
+
+  .game-thumb {
+    height: 200px;
+    width: 100%;
+  }
+
+  .game-deal-card {
+    padding: 0.7rem 2rem;
+  }
+
+  .deal-store span {
+    display: none;
+  }
+
+  .deal-price {
+    font-size: 1rem;
+  }
+
+  .deal-retail {
+    font-size: 0.7rem;
+  }
+
+  .deal-link {
+    margin: 0.5rem 0;
+  }
+}

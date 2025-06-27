@@ -1,0 +1,38 @@
+.app-footer {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #444;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-name {
+  font-size: 0.9rem;
+}
+
+.footer-icons a {
+  color: var(--color-highlight);
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  transition: color 0.2s;
+}
+
+.footer-icons a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
