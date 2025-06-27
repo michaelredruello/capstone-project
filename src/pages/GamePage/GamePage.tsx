@@ -14,7 +14,8 @@ const GamePage = () => {
   const { game, loading, error } = useSelector(
     (state: RootState) => state.game
   );
-  const { steamGame, loading: steamLoading } = useSelector(
+  const imgUrl = `https://cdn.cloudflare.steamstatic.com/steam/apps/${game?.info?.steamAppID}/header.jpg`;
+  const { loading: steamLoading } = useSelector(
     (state: RootState) => state.steam
   );
   const stores = useSelector((state: RootState) => state.stores.list);
@@ -57,7 +58,7 @@ const GamePage = () => {
         <h1 className="game-title">{game.info.title}</h1>
         <img
           className="game-thumb"
-          src={steamGame?.imgUrl || game.info.thumb}
+          src={imgUrl || game.info.thumb}
           alt={game.info.title}
         />
       </div>
